@@ -107,7 +107,7 @@ void pushBack(vector *v, int x) {
 //удаляет элемент с конца вектора
 void popBack(vector *v) {
     if (isEmpty(v)) {
-        fprintf(stderr, "vector is empty");
+        fprintf(stderr, "vector is emptyy");
         exit(1);
     } else {
         deleteByPosSaveOrder_(v->data, &v->size, v->size);
