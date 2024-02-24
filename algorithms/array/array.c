@@ -20,7 +20,7 @@ void outputArray_ ( const int * const a , const size_t n ) {
 
 void append_ (int * const a , size_t * const n , const int value ) {
     a [* n ] = value ;
-    (* n ) ++;
+    (*n)++;
 }
 
 void insert_ (int * const a , size_t * const n , const size_t pos ,

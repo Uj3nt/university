@@ -18,7 +18,7 @@ typedef struct vector {
 
 //проверка на то, является ли вектор полным
 bool isFull(vector *v) {
-    return v->size = v->capacity;
+    return v->size == v->capacity;
 }
 
 //проверка на то, является ли вектор пустым
@@ -40,7 +40,7 @@ void checkCorrectMemory_(vector *v) {
 vector createVector(size_t n) {
     vector v = {
             (int *) malloc(n * sizeof(int)),
-            n,
+            0,
             n
     };
     checkCorrectMemory_(&v);
@@ -107,7 +107,7 @@ void pushBack(vector *v, int x) {
 //удаляет элемент с конца вектора
 void popBack(vector *v) {
     if (isEmpty(v)) {
-        fprintf(stderr, "vector is emptyy");
+        fprintf(stderr, "vector is empty");
         exit(1);
     } else {
         deleteByPosSaveOrder_(v->data, &v->size, v->size);
@@ -116,12 +116,18 @@ void popBack(vector *v) {
 
 // возвращает указатель на
 //index-ый элемент вектора.
-int *atVector(vector *v, size_t index);
+int *atVector(vector *v, size_t index) {
+    return v->data + index - 1;
+}
 
 //возвращает указатель на последний элемент вектора.
-int *back(vector *v);
+int *back(vector *v) {
+    return v->data + v->size -1;
+}
 
 //возвращает указатель на нулевой элемент вектора.
-int *front(vector *v);
+int *front(vector *v) {
+    return v->data;
+}
 
 # endif
