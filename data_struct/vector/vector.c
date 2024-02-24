@@ -16,8 +16,19 @@ typedef struct vector {
     size_t capacity; // вместимость вектора
 } vector;
 
+//проверка на то, является ли вектор полным
+bool isFull(vector *v) {
+    return v->size = v->capacity;
+}
+
+//проверка на то, является ли вектор пустым
+bool isEmpty(vector *v) {
+    return v->size == 0;
+}
+
+
 //check_correct_memory
-void checkCorrectMemory(vector *v) {
+void checkCorrectMemory_(vector *v) {
     if (v->data == NULL) {
         fprintf(stderr, "bad alloc");
         exit(1);
@@ -32,7 +43,7 @@ vector createVector(size_t n) {
             n,
             n
     };
-    checkCorrectMemory(&v);
+    checkCorrectMemory_(&v);
 
     return v;
 }
@@ -50,7 +61,18 @@ void reserve(vector *v, size_t newCapacity) {
             v->size = newCapacity;
         }
     }
-    checkCorrectMemory(v);
+    checkCorrectMemory_(v);
+}
+
+void extensionMemoryVector_(vector *v) {
+    if (v->capacity == 0) {
+        v->data = (int *) realloc(v->data, sizeof(int));
+        v->capacity = 1;
+    } else if (isFull(v)) {
+        v->data = (int *) realloc(v->data, sizeof(int) * v->capacity * 2);
+        v->capacity *= 2;
+    }
+    checkCorrectMemory_(v);
 }
 
 //удаляет элементы из контейнера, но не освобождает выделенную память
@@ -60,7 +82,7 @@ void clear(vector *v) {
 
 //освобождает память, выделенную под неиспользуемые элементы.
 void shrinkToFit(vector *v) {
-    if (v->size != v->capacity) {
+    if (!isFull(v)) {
         v->data = (int *) realloc(v->data, sizeof(int) * v->size);
         v->capacity = v->size;
     }
@@ -71,20 +93,26 @@ void deleteVector(vector *v) {
     free(v->data);
 }
 
-//проверка на то, является ли вектор пустым
-bool isEmpty(vector *v);
-
-//проверка на то, является ли вектор полным
-bool isFull(vector *v);
-
 //возвращает i-ый элемент вектора v
-int getVectorValue(vector *v, size_t i);
+int getVectorValue(vector *v, size_t i) {
+    return v->data[i];
+}
 
 //добавляет элемент в конец вектора
-void pushBack(vector *v, int x);
+void pushBack(vector *v, int x) {
+    extensionMemoryVector_(v);
+    append_(v->data, &v->size, x);
+}
 
 //удаляет элемент с конца вектора
-void popBack(vector *v);
+void popBack(vector *v) {
+    if (isEmpty(v)) {
+        fprintf(stderr, "vector is empty");
+        exit(1);
+    } else {
+        deleteByPosSaveOrder_(v->data, &v->size, v->size);
+    }
+}
 
 // возвращает указатель на
 //index-ый элемент вектора.
