@@ -1,19 +1,8 @@
 #include "vector_void.h"
 
-void append_v(void* *a , size_t *n , void* value ) {
-    a [* n ] = value ;
-    (*n)++;
-}
-
-
 //проверка на то, является ли вектор полным
 bool isFullV(vector_void *v) {
     return v->size == v->capacity;
-}
-
-//проверка на то, является ли вектор пустым
-bool isEmptyV(vector_void *v) {
-    return v->size == 0;
 }
 
 void checkCorrectMemory_V(vector_void *v) {
@@ -22,6 +11,27 @@ void checkCorrectMemory_V(vector_void *v) {
         exit(1);
     }
 }
+
+void append_v(void* *a , size_t *n , void* value ) {
+    a[*n] = value;
+    (*n)++;
+}
+
+//проверка на то, является ли вектор пустым
+bool isEmptyV(vector_void *v) {
+    return v->size == 0;
+}
+//antonio
+void pushBackV(vector_void *v, void* source) {
+    if (v->size >= v->capacity) {
+        size_t curr_size = v->size == 0 ? 1 : v->size * 2;
+        reserveV(v, curr_size);
+    }
+    void* dest = (void*) v->data + v->size * v->baseTypeSize;
+    memcpy(dest, source, v->baseTypeSize);
+    v->size++;
+}
+
 
 //возвращает структуру-дескриптор вектор из n значений.
 vector_void createVectorV(size_t n, size_t baseTypeSize) {
@@ -42,22 +52,11 @@ void reserveV(vector_void *v, size_t newCapacity) {
         v->data = NULL;
         v->size = 0;
     } else {
-        v->data = (void *) realloc(v->data, sizeof(int) * newCapacity);
+        v->data = (void *) realloc(v->data, sizeof(void*) * newCapacity);
         v->capacity = newCapacity;
         if (v->size > newCapacity) {
             v->size = newCapacity;
         }
-    }
-    checkCorrectMemory_V(v);
-}
-
-void extensionMemoryVector_V(vector_void *v) {
-    if (v->capacity == 0) {
-        v->data = (void *) realloc(v->data, v->baseTypeSize);
-        v->capacity = 1;
-    } else if (isFullV(v)) {
-        v->data = (void *) realloc(v->data, v->baseTypeSize * v->capacity * 2);
-        v->capacity *= 2;
     }
     checkCorrectMemory_V(v);
 }
@@ -83,19 +82,27 @@ void deleteVectorV(vector_void *v) {
     free(v->data);
 }
 
-//добавляет элемент в конец вектора
-void pushBackV(vector_void *v, void* source) {
-    extensionMemoryVector_V(v);
-    append_v(v->data, &v->size, source);
+//удаляет элемент с конца вектора
+void popBackV(vector_void *v) {
+    (v->size)--;
 }
 
-//удаляет элемент с конца вектора
-void popBackV(vector_void *v);
+void getVectorValueV(vector_void *v, size_t index, void *destination) {
+    if (index >= v->size) {
+        fprintf(stderr, "Index out of range");
+        exit(1);
+    }
 
-// записывает по адресу destination index-ый элемент вектора v
-void getVectorValueV(vector_void *v, size_t index, void* destination);
+    void* dest = (void*) v->data + v->size * v->baseTypeSize;
+    memcpy(dest, dest, v->baseTypeSize);
+}
 
-//записывает на index-ый элемент вектора v значение, расположенное по
-//адресу source
-void setVectorValueV(vector_void *v, size_t index, void* source);
+void setVectorValueV(vector_void *v, size_t index, void *source) {
+    if (index >= v->size) {
+        fprintf(stderr, "Index out of range");
+        exit(1);
+    }
 
+    void* dest = (void*) v->data + v->size * v->baseTypeSize;
+    memcpy(dest, source, v->baseTypeSize);
+}
