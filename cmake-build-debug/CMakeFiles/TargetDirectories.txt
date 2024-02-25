@@ -1,0 +1,13 @@
+D:/Programmig_SecondSem/cmake-build-debug/CMakeFiles/Programmig_SecondSem.dir
+D:/Programmig_SecondSem/cmake-build-debug/CMakeFiles/gg.dir
+D:/Programmig_SecondSem/cmake-build-debug/CMakeFiles/vector_test.dir
+D:/Programmig_SecondSem/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Programmig_SecondSem/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/Programmig_SecondSem/cmake-build-debug/libs/CMakeFiles/edit_cache.dir
+D:/Programmig_SecondSem/cmake-build-debug/libs/CMakeFiles/rebuild_cache.dir
+D:/Programmig_SecondSem/cmake-build-debug/libs/algorithms/CMakeFiles/algorithms.dir
+D:/Programmig_SecondSem/cmake-build-debug/libs/algorithms/CMakeFiles/edit_cache.dir
+D:/Programmig_SecondSem/cmake-build-debug/libs/algorithms/CMakeFiles/rebuild_cache.dir
+D:/Programmig_SecondSem/cmake-build-debug/libs/data_struct/CMakeFiles/data_strut.dir
+D:/Programmig_SecondSem/cmake-build-debug/libs/data_struct/CMakeFiles/edit_cache.dir
+D:/Programmig_SecondSem/cmake-build-debug/libs/data_struct/CMakeFiles/rebuild_cache.dir

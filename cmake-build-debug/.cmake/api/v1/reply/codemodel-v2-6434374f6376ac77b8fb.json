@@ -1,0 +1,147 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						3,
+						4
+					]
+				},
+				{
+					"build" : "libs",
+					"childIndexes" : 
+					[
+						2,
+						3
+					],
+					"jsonFile" : "directory-libs-Debug-dd7a5ca29a7a50124f40.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "libs"
+				},
+				{
+					"build" : "libs/algorithms",
+					"jsonFile" : "directory-libs.algorithms-Debug-82761d2213cf66600325.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "libs/algorithms",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "libs/data_struct",
+					"jsonFile" : "directory-libs.data_struct-Debug-8e8093a23a6ec476d761.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "libs/data_struct",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					],
+					"name" : "Programmig_SecondSem",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Programmig_SecondSem::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Programmig_SecondSem-Debug-8fcd9f56787ca7996ac4.json",
+					"name" : "Programmig_SecondSem",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "algorithms::@4f84be16bc75261b2db5",
+					"jsonFile" : "target-algorithms-Debug-b919ad9e01f60e4afefb.json",
+					"name" : "algorithms",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "data_strut::@1dcd1a09ba689f0595e2",
+					"jsonFile" : "target-data_strut-Debug-60888fc6f507b765fb2f.json",
+					"name" : "data_strut",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gg-Debug-ef390d53a94cd32c2ea8.json",
+					"name" : "gg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "vector_test::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-vector_test-Debug-df2ad5d4868a17f5fbf8.json",
+					"name" : "vector_test",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/Programmig_SecondSem/cmake-build-debug",
+		"source" : "D:/Programmig_SecondSem"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}
