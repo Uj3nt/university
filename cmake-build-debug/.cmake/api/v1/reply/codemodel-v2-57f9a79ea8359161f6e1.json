@@ -136,8 +136,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "D:/Programmig_SecondSem/cmake-build-debug",
-		"source" : "D:/Programmig_SecondSem"
+		"build" : "D:/Programmig_SecondSem/SecondSem/cmake-build-debug",
+		"source" : "D:/Programmig_SecondSem/SecondSem"
 	},
 	"version" : 
 	{

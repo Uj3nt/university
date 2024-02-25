@@ -1,4 +1,4 @@
-# Install script for directory: D:/Programmig_SecondSem/libs
+# Install script for directory: D:/Programmig_SecondSem/SecondSem/libs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,11 +39,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("D:/Programmig_SecondSem/cmake-build-debug/libs/algorithms/cmake_install.cmake")
+  include("D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/algorithms/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("D:/Programmig_SecondSem/cmake-build-debug/libs/data_struct/cmake_install.cmake")
+  include("D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/data_struct/cmake_install.cmake")
 endif()
 

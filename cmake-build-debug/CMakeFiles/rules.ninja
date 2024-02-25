@@ -118,7 +118,7 @@ rule C_STATIC_LIBRARY_LINKER__data_strut_Debug
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = "E:\MoiCi\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\Programmig_SecondSem -BD:\Programmig_SecondSem\cmake-build-debug
+  command = "E:\MoiCi\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\Programmig_SecondSem\SecondSem -BD:\Programmig_SecondSem\SecondSem\cmake-build-debug
   description = Re-running CMake...
   generator = 1
 

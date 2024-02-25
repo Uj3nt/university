@@ -1,4 +1,4 @@
-# Install script for directory: D:/Programmig_SecondSem/libs/data_struct
+# Install script for directory: D:/Programmig_SecondSem/SecondSem/libs/data_struct
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

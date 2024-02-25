@@ -1,4 +1,4 @@
-# Install script for directory: D:/Programmig_SecondSem/libs/algorithms
+# Install script for directory: D:/Programmig_SecondSem/SecondSem/libs/algorithms
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

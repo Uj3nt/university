@@ -59,8 +59,6 @@ void test_vector_pushBack() {
     test_vector_pushBack3();
 }
 
-void test_vector_popBack
-
 
 void test() {
     test_create_vector();
