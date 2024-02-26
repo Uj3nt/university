@@ -10,6 +10,8 @@ int main() {
     pushBackV(&vv, &x);
     pushBackV(&vv, &x);
     pushBackV(&vv, &x);
+    pushBackV(&vv, &x);
+    shrinkToFitV(&vv);
     printf("%d\n", vv.capacity);
 
 

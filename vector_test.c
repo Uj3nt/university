@@ -53,20 +53,98 @@ void test_vector_pushBack3() {
     deleteVector(&v);
 }
 
+
+void test_vector_popBack1() {
+    vector v = createVector(3);
+    pushBack(&v, 72);
+    pushBack(&v, 12);
+    pushBack(&v, 33);
+    popBack(&v);
+    assert(v.size == 2);
+    deleteVector(&v);
+}
+
+void test_vector_popBack2() {
+    vector v = createVector(3);
+    pushBack(&v, 72);
+    pushBack(&v, 12);
+    pushBack(&v, 33);
+    popBack(&v);
+    popBack(&v);
+    popBack(&v);
+    assert(v.size == 0);
+    deleteVector(&v);
+
+}
+
+void test_vector_popBack3() {
+    vector v = createVector(3);
+    pushBack(&v, 72);
+    pushBack(&v, 12);
+    pushBack(&v, 33);
+    popBack(&v);
+    popBack(&v);
+    popBack(&v);
+    pushBack(&v, 33);
+    popBack(&v);
+    assert(v.size == 0);
+    deleteVector(&v);
+}
+
+
 void test_vector_pushBack() {
     test_vector_pushBack1();
     test_vector_pushBack2();
     test_vector_pushBack3();
 }
 
+void test_vector_popBack() {
+    test_vector_popBack1();
+    test_vector_popBack2();
+    test_vector_popBack3();
+}
 
+
+void test_vector_getValue1() {
+    vector v = createVector(3);
+    pushBack(&v, 72);
+    pushBack(&v, 12);
+    pushBack(&v, 33);
+    int x = getVectorValue(&v, 2);
+    assert(x == 33);
+}
+
+void test_vector_getValue2() {
+    vector v = createVector(3);
+    pushBack(&v, 72);
+    pushBack(&v, 12);
+    pushBack(&v, 33);
+    int x = getVectorValue(&v, 1);
+    assert(x == 12);
+}
+
+void test_vector_getValue3() {
+    vector v = createVector(3);
+    pushBack(&v, 72);
+    pushBack(&v, 12);
+    pushBack(&v, 33);
+    int x = getVectorValue(&v, 0);
+    assert(x == 72);
+}
+
+void test_vector_getValue() {
+    test_vector_getValue1();
+    test_vector_getValue2();
+    test_vector_getValue3();
+}
 void test() {
     test_create_vector();
     test_vector_pushBack();
+    test_vector_popBack();
+    test_vector_getValue();
 }
 
 
 int main() {
-    test_create_vector();
-    test_vector_pushBack();
+    test();
 }
