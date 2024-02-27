@@ -127,7 +127,5 @@ int *back(vector *v) {
 
 //возвращает указатель на нулевой элемент вектора.
 int *front(vector *v) {
-    return v->data;
-}
-
+    return v->d
 # endif
