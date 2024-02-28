@@ -9,5 +9,7 @@ add_library(data_strut
        vector/vector.h
        vector_void/vector_void.c
        vector_void/vector_void.h
-        vector_void/vector_void.c
+       vector_void/vector_void.c
+       matrix/matrix.h
+       matrix/matrix.c
 )

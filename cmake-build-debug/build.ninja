@@ -139,6 +139,39 @@ build vector_test.exe: C_EXECUTABLE_LINKER__vector_test_Debug CMakeFiles/vector_
   TARGET_IMPLIB = libvector_test.dll.a
   TARGET_PDB = vector_test.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target matrix_test
+
+
+#############################################
+# Order-only phony target for matrix_test
+
+build cmake_object_order_depends_target_matrix_test: phony || CMakeFiles/matrix_test.dir
+
+build CMakeFiles/matrix_test.dir/matrix_test.c.obj: C_COMPILER__matrix_test_unscanned_Debug D$:/Programmig_SecondSem/SecondSem/matrix_test.c || cmake_object_order_depends_target_matrix_test
+  DEP_FILE = CMakeFiles\matrix_test.dir\matrix_test.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\matrix_test.dir
+  OBJECT_FILE_DIR = CMakeFiles\matrix_test.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target matrix_test
+
+
+#############################################
+# Link the executable matrix_test.exe
+
+build matrix_test.exe: C_EXECUTABLE_LINKER__matrix_test_Debug CMakeFiles/matrix_test.dir/matrix_test.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\matrix_test.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = matrix_test.exe
+  TARGET_IMPLIB = libmatrix_test.dll.a
+  TARGET_PDB = matrix_test.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -299,6 +332,12 @@ build libs/data_struct/CMakeFiles/data_strut.dir/vector_void/vector_void.c.obj: 
   OBJECT_DIR = libs\data_struct\CMakeFiles\data_strut.dir
   OBJECT_FILE_DIR = libs\data_struct\CMakeFiles\data_strut.dir\vector_void
 
+build libs/data_struct/CMakeFiles/data_strut.dir/matrix/matrix.c.obj: C_COMPILER__data_strut_unscanned_Debug D$:/Programmig_SecondSem/SecondSem/libs/data_struct/matrix/matrix.c || cmake_object_order_depends_target_data_strut
+  DEP_FILE = libs\data_struct\CMakeFiles\data_strut.dir\matrix\matrix.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = libs\data_struct\CMakeFiles\data_strut.dir
+  OBJECT_FILE_DIR = libs\data_struct\CMakeFiles\data_strut.dir\matrix
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target data_strut
@@ -307,7 +346,7 @@ build libs/data_struct/CMakeFiles/data_strut.dir/vector_void/vector_void.c.obj: 
 #############################################
 # Link the static library libs\data_struct\libdata_strut.a
 
-build libs/data_struct/libdata_strut.a: C_STATIC_LIBRARY_LINKER__data_strut_Debug libs/data_struct/CMakeFiles/data_strut.dir/bitset/bitset.c.obj libs/data_struct/CMakeFiles/data_strut.dir/unordered_set/unordered_set.c.obj libs/data_struct/CMakeFiles/data_strut.dir/ordered_set/ordered_set.c.obj libs/data_struct/CMakeFiles/data_strut.dir/vector/vector.c.obj libs/data_struct/CMakeFiles/data_strut.dir/vector_void/vector_void.c.obj
+build libs/data_struct/libdata_strut.a: C_STATIC_LIBRARY_LINKER__data_strut_Debug libs/data_struct/CMakeFiles/data_strut.dir/bitset/bitset.c.obj libs/data_struct/CMakeFiles/data_strut.dir/unordered_set/unordered_set.c.obj libs/data_struct/CMakeFiles/data_strut.dir/ordered_set/ordered_set.c.obj libs/data_struct/CMakeFiles/data_strut.dir/vector/vector.c.obj libs/data_struct/CMakeFiles/data_strut.dir/vector_void/vector_void.c.obj libs/data_struct/CMakeFiles/data_strut.dir/matrix/matrix.c.obj
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = libs\data_struct\CMakeFiles\data_strut.dir
   POST_BUILD = cd .
@@ -353,6 +392,8 @@ build libalgorithms.a: phony libs/algorithms/libalgorithms.a
 
 build libdata_strut.a: phony libs/data_struct/libdata_strut.a
 
+build matrix_test: phony matrix_test.exe
+
 build vector_test: phony vector_test.exe
 
 # =============================================================================
@@ -363,7 +404,7 @@ build vector_test: phony vector_test.exe
 #############################################
 # Folder: D:/Programmig_SecondSem/SecondSem/cmake-build-debug
 
-build all: phony Programmig_SecondSem.exe gg.exe vector_test.exe libs/all
+build all: phony Programmig_SecondSem.exe gg.exe vector_test.exe matrix_test.exe libs/all
 
 # =============================================================================
 

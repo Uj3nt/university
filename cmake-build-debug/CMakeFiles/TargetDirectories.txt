@@ -1,6 +1,7 @@
 D:/Programmig_SecondSem/SecondSem/cmake-build-debug/CMakeFiles/Programmig_SecondSem.dir
 D:/Programmig_SecondSem/SecondSem/cmake-build-debug/CMakeFiles/gg.dir
 D:/Programmig_SecondSem/SecondSem/cmake-build-debug/CMakeFiles/vector_test.dir
+D:/Programmig_SecondSem/SecondSem/cmake-build-debug/CMakeFiles/matrix_test.dir
 D:/Programmig_SecondSem/SecondSem/cmake-build-debug/CMakeFiles/edit_cache.dir
 D:/Programmig_SecondSem/SecondSem/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/CMakeFiles/edit_cache.dir

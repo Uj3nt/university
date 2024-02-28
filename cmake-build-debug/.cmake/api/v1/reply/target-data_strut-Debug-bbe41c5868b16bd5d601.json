@@ -54,7 +54,8 @@
 				2,
 				4,
 				6,
-				8
+				8,
+				11
 			]
 		}
 	],
@@ -76,7 +77,8 @@
 				2,
 				4,
 				6,
-				8
+				8,
+				11
 			]
 		},
 		{
@@ -87,7 +89,8 @@
 				3,
 				5,
 				7,
-				9
+				9,
+				10
 			]
 		}
 	],
@@ -147,6 +150,17 @@
 			"backtrace" : 1,
 			"path" : "libs/data_struct/vector_void/vector_void.h",
 			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libs/data_struct/matrix/matrix.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "libs/data_struct/matrix/matrix.c",
+			"sourceGroupIndex" : 0
 		}
 	],
 	"type" : "STATIC_LIBRARY"

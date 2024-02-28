@@ -21,7 +21,8 @@
 					[
 						0,
 						3,
-						4
+						4,
+						5
 					]
 				},
 				{
@@ -89,7 +90,8 @@
 						1,
 						2,
 						3,
-						4
+						4,
+						5
 					]
 				}
 			],
@@ -112,7 +114,7 @@
 				{
 					"directoryIndex" : 3,
 					"id" : "data_strut::@1dcd1a09ba689f0595e2",
-					"jsonFile" : "target-data_strut-Debug-60888fc6f507b765fb2f.json",
+					"jsonFile" : "target-data_strut-Debug-bbe41c5868b16bd5d601.json",
 					"name" : "data_strut",
 					"projectIndex" : 0
 				},
@@ -121,6 +123,13 @@
 					"id" : "gg::@6890427a1f51a3e7e1df",
 					"jsonFile" : "target-gg-Debug-ef390d53a94cd32c2ea8.json",
 					"name" : "gg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "matrix_test::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-matrix_test-Debug-20dbbce62d3c8f2c0516.json",
+					"name" : "matrix_test",
 					"projectIndex" : 0
 				},
 				{
