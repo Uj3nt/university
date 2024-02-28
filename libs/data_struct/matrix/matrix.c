@@ -36,7 +36,7 @@ void freeMemMatrices(matrix *ms, int nMatrices) {
 //ввод матрицы m
 void inputMatrix(matrix *m) {
     for (int i = 0; i < m->nRows; ++i) {
-        printf("Введите %zu строку", i + 1);
+        printf("Введите %zu строку\n", i + 1);
         for (int j = 0; j < m->nCols; ++j) {
             scanf("%d", &m->values[i][j]);
         }
@@ -45,23 +45,49 @@ void inputMatrix(matrix *m) {
 
 
 //ввод массива из nMatrices матриц, хранящейся по адресу ms
-void inputMatrices(matrix *ms, int nMatrices) ;
+void inputMatrices(matrix *ms, int nMatrices)  {
+    for (int i = 0; i < nMatrices; ++i) {
+        inputMatrix(&ms[i]);
+    }
+}
 
 
 //вывод матрицы m
-void outputMatrix(matrix m) ;
+void outputMatrix(matrix m) {
+    for (int i = 0; i < m.nRows; ++i) {
+        printf("\n");
+        for (int j = 0; j < m.nCols; ++j) {
+            printf("%d ", m.values[i][j]);
+        }
+    }
+    printf("\n");
+}
 
 
 //вывод массива из nMatrices матриц, хранящейся по адресу ms
-void outputMatrices(matrix *ms, int nMatrices) ;
+void outputMatrices(matrix *ms, int nMatrices) {
+    for (int i = 0; i < nMatrices; ++i) {
+        outputMatrix(ms[i]);
+    }
+}
 
 
 //обмен строк с порядковыми номерами i1 и i2 в матрице m.
-void swapRows(matrix m, int i1, int i2) ;
+void swapRows(matrix m, int i1, int i2) {
+    int *temp = m.values[i1];
+    m.values[i1] = m.values[i2];
+    m.values[i2] = temp;
+}
 
 
 //обмен колонок с порядковыми номерами j1 и j2 в матрице m
-void swapColumns(matrix m, int j1, int j2) ;
+void swapColumns(matrix m, int j1, int j2) {
+    for (int i = 0; i < m.nRows; ++i) {
+        int temp = m.values[i][j1];
+        m.values[i][j1] = m.values[i][j2];
+        m.values[i][j2] = temp;
+    }
+}
 
 
 //выполняет сортировку вставками строк матрицы m
