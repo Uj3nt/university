@@ -102,14 +102,27 @@ void selectionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int))
 
 //возвращает значение ’истина’, если
 //матрица m является квадратной, ложь – в противном случае
-bool isSquareMatrix(matrix *m);
-
+bool isSquareMatrix(matrix *m) {
+    return m->nRows == m->nCols;
+}
 
 //возвращает значение ’истина’,
 //если матрицы m1 и m2 равны, ложь – в противном случае
-bool areTwoMatricesEqual(matrix *m1, matrix *m2);
+bool areTwoMatricesEqual(matrix *m1, matrix *m2) {
+    if (m1->nRows != m2->nRows || m1->nCols != m2->nCols) {
+        return false;
+    }
 
+    for (int i = 0; i < m1->nRows; i++) {
+        for (int j = 0; j < m1->nCols; j++) {
+            if (m1->values[i][j] != m2->values[i][j]) {
+                return false;
+            }
+        }
+    }
 
+    return true;
+}
 // возвращает значение ’истина’, если матрица
 //m является единичной, ложь – в противном случае
 bool isEMatrix(matrix *m);
