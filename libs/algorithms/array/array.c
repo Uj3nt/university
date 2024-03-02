@@ -144,4 +144,25 @@ size_t binarySearchMoreOrEqual_ ( const int *a , size_t n , int x ) {
     return right ;
 }
 
+void swapElements(int *a, int pos1, int pos2) {
+    int temp = a[pos1];
+    a[pos1] = a[pos2];
+    a[pos2] = temp;
+}
+
+void SelectionArraySort(int *a, size_t n) {
+    for (int i = 0; i < n; i++) {
+        int min_element = a[i];
+        int min_element_index = i;
+
+        for (int j = i; j < n; j++) {
+            if (a[j] < min_element) {
+                min_element = a[j];
+                min_element_index = j;
+            }
+        }
+        swapElements(a, i, min_element_index);
+    }
+}
+
 # endif
