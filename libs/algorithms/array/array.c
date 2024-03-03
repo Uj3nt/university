@@ -150,6 +150,18 @@ void swapElements(int *a, int pos1, int pos2) {
     a[pos2] = temp;
 }
 
+void insertionSort(int *a, const size_t size) {
+    for (size_t i = 1; i < size; i++) {
+        int t = a[i];
+        int j = i;
+        while (j > 0 && a[j - 1] > t) {
+            a[j] = a[j - 1];
+            j--;
+        }
+        a[j] = t;
+    }
+}
+
 void SelectionArraySort(int *a, size_t n) {
     for (int i = 0; i < n; i++) {
         int min_element = a[i];

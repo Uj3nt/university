@@ -90,9 +90,43 @@ void swapColumns(matrix m, int j1, int j2) {
 }
 
 
+
+int GetSumRows(int *a, int nCols) {
+    int sum_rows = 0;
+
+    for (int i = 0; i < nCols; ++i) {
+        sum_rows += a[i];
+    }
+
+    return sum_rows;
+}
+
 //выполняет сортировку вставками строк матрицы m
 //по неубыванию значения функции criteria применяемой для строк
-void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int));
+void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int)) {
+    int *criteria_array = malloc(m.nRows * sizeof(int));
+
+    for (int i = 0; i < m.nRows; i++) {
+        criteria_array[i] = criteria(m.values[i], m.nCols);
+    }
+
+    for (int i = 1; i < m.nRows; i++) {
+        int key = criteria_array[i];
+        int *key_row = m.values[i];
+        int j = i - 1;
+
+        while (j >= 0 && criteria_array[j] > key) {
+            criteria_array[j + 1] = criteria_array[j];
+            swapRows(m, j + 1, j);
+            j = j - 1;
+        }
+
+        criteria_array[j + 1] = key;
+        m.values[j + 1] = key_row;
+    }
+
+    free(criteria_array);
+}
 
 
 //выполняет сортировку выбором столбцов матрицы m

@@ -2,10 +2,10 @@
 
 
 int main() {
-    matrix m = getMemMatrix(4, 3);
+    matrix m = getMemMatrix(3, 3);
     inputMatrix(&m);
     outputMatrix(m);
-    swapColumns(m,0,2);
+    insertionSortRowsMatrixByRowCriteria(m, GetSumRows);
     outputMatrix(m);
     return 0;
 }
