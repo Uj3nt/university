@@ -90,7 +90,6 @@ void swapColumns(matrix m, int j1, int j2) {
 }
 
 
-
 int GetSumRows(int *a, int n) {
     int sum_rows = 0;
 
@@ -192,20 +191,69 @@ bool areTwoMatricesEqual(matrix *m1, matrix *m2) {
 }
 // возвращает значение ’истина’, если матрица
 //m является единичной, ложь – в противном случае
-bool isEMatrix(matrix *m);
+bool isEMatrix(matrix *m) {
+    if (!isSquareMatrix(m)) {
+        return 0;
+    }
+
+    for (int i = 0; i < m->nRows; ++i) {
+        for (int j = 0; j < m->nCols; ++j) {
+            if (i == j && m->values[i][j] != 1) {
+                return 0;
+            } else if (i != j && m->values[i][j] != 0) {
+                return 0;
+            }
+        }
+    }
+
+    return 1;
+}
 
 
 //возвращает значение ’истина’,
 //если матрица m является симметричной, ложь – в противном случае
-bool isSymmetricMatrix(matrix *m);
+bool isSymmetricMatrix(matrix *m) {
+    if (!isSquareMatrix(m)) {
+        return false;
+    }
+
+    for (int i = 0; i < m->nRows; i++) {
+        for (int j = 0; j < i; j++) {
+            if (m->values[i][j] != m->values[j][i]) {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
 
 
 //транспонирует квадратную матрицу m
-void transposeSquareMatrix(matrix *m);
-
+void transposeSquareMatrix(matrix *m) {
+    for (int i = 0; i < m->nRows; i++) {
+        for (int j = i + 1; j < m->nCols; j++) {
+            int temp = m->values[i][j];
+            m->values[i][j] = m->values[j][i];
+            m->values[j][i] = temp;
+        }
+    }
+}
 
 //транспонирует матрицу m
-void transposeMatrix(matrix *m);
+void transposeMatrix(matrix *m) {
+    int temp = m->nRows;
+    m->nRows = m->nCols;
+    m->nCols = temp;
+
+    for (int i = 0; i < m->nRows; i++) {
+        for (int j = i + 1; j < m->nCols; j++) {
+            int temp = m->values[i][j];
+            m->values[i][j] = m->values[j][i];
+            m->values[j][i] = temp;
+        }
+    }
+}
 
 
 //возвращает позицию минимального элемента матрицы m
@@ -245,13 +293,28 @@ position getMaxValuePos(matrix m) {
 }
 
 
-
-
 //возвращает матрицу размера nRows на nCols, построенную из элементов массива a
-matrix createMatrixFromArray(const int *a, int nRows, int nCols);
+matrix createMatrixFromArray(const int *a, int nRows, int nCols) {
+    matrix m = getMemMatrix(nRows, nCols);
+
+    int k = 0;
+    for (int i = 0; i < nRows; i++)
+        for (int j = 0; j < nCols; j++)
+            m.values[i][j] = a[k++];
+
+    return m;
+}
 
 //возвращает указатель на нулевую матрицу массива из nMatrices матриц,
 //размещенных в динамической памяти, построенных из элементов массива a
-matrix *createArrayOfMatrixFromArray(const int *values, size_t nMatrices, size_t nRows, size_t nCols);
+matrix *createArrayOfMatrixFromArray(const int *values, size_t nMatrices, size_t nRows, size_t nCols) {
+    matrix *ms = getMemArrayOfMatrices(nMatrices, nRows, nCols);
 
+    int l = 0;
+    for (size_t k = 0; k < nMatrices; k++)
+        for (size_t i = 0; i < nRows; i++)
+            for (size_t j = 0; j < nCols; j++)
+                ms[k].values[i][j] = values[l++];
 
+    return ms;
+}

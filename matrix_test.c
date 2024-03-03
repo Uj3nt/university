@@ -5,7 +5,7 @@ int main() {
     matrix m = getMemMatrix(3, 3);
     inputMatrix(&m);
     outputMatrix(m);
-    insertionSortRowsMatrixByRowCriteria(m, GetSumRows);
+    printf("%d",isEMatrix(&m));
     outputMatrix(m);
     return 0;
 }
