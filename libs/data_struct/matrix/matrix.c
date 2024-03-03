@@ -91,10 +91,10 @@ void swapColumns(matrix m, int j1, int j2) {
 
 
 
-int GetSumRows(int *a, int nCols) {
+int GetSumRows(int *a, int n) {
     int sum_rows = 0;
 
-    for (int i = 0; i < nCols; ++i) {
+    for (int i = 0; i < n; ++i) {
         sum_rows += a[i];
     }
 
@@ -131,7 +131,40 @@ void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int))
 
 //выполняет сортировку выбором столбцов матрицы m
 // по неубыванию значения функции criteria применяемой для столбцов
-void selectionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int));
+void selectionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int)) {
+    int *criteria_array = (int *) malloc(m.nCols * sizeof(int));
+
+    int *temp_column = (int *) malloc(m.nRows * sizeof(int));
+
+    for (int j = 0; j < m.nCols; j++) {
+        for (int i = 0; i < m.nRows; i++) {
+            temp_column[i] = m.values[i][j];
+        }
+
+        criteria_array[j] = criteria(temp_column, m.nRows);
+    }
+
+    free(temp_column);
+
+    for (int i = 0; i < m.nCols - 1; i++) {
+        int min_index = i;
+        for (int j = i + 1; j < m.nCols; j++) {
+            if (criteria_array[j] < criteria_array[min_index]) {
+                min_index = j;
+            }
+        }
+
+        if (min_index != i) {
+            swapColumns(m, i, min_index);
+            int temp = criteria_array[i];
+            criteria_array[i] = criteria_array[min_index];
+            criteria_array[min_index] = temp;
+        }
+    }
+
+    free(criteria_array);
+
+}
 
 
 //возвращает значение ’истина’, если
