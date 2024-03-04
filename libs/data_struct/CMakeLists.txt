@@ -12,4 +12,5 @@ add_library(data_strut
        vector_void/vector_void.c
        matrix/matrix.h
        matrix/matrix.c
+       matrix/matrix_ex.c
 )

@@ -338,6 +338,12 @@ build libs/data_struct/CMakeFiles/data_strut.dir/matrix/matrix.c.obj: C_COMPILER
   OBJECT_DIR = libs\data_struct\CMakeFiles\data_strut.dir
   OBJECT_FILE_DIR = libs\data_struct\CMakeFiles\data_strut.dir\matrix
 
+build libs/data_struct/CMakeFiles/data_strut.dir/matrix/matrix_ex.c.obj: C_COMPILER__data_strut_unscanned_Debug D$:/Programmig_SecondSem/SecondSem/libs/data_struct/matrix/matrix_ex.c || cmake_object_order_depends_target_data_strut
+  DEP_FILE = libs\data_struct\CMakeFiles\data_strut.dir\matrix\matrix_ex.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = libs\data_struct\CMakeFiles\data_strut.dir
+  OBJECT_FILE_DIR = libs\data_struct\CMakeFiles\data_strut.dir\matrix
+
 
 # =============================================================================
 # Link build statements for STATIC_LIBRARY target data_strut
@@ -346,7 +352,7 @@ build libs/data_struct/CMakeFiles/data_strut.dir/matrix/matrix.c.obj: C_COMPILER
 #############################################
 # Link the static library libs\data_struct\libdata_strut.a
 
-build libs/data_struct/libdata_strut.a: C_STATIC_LIBRARY_LINKER__data_strut_Debug libs/data_struct/CMakeFiles/data_strut.dir/bitset/bitset.c.obj libs/data_struct/CMakeFiles/data_strut.dir/unordered_set/unordered_set.c.obj libs/data_struct/CMakeFiles/data_strut.dir/ordered_set/ordered_set.c.obj libs/data_struct/CMakeFiles/data_strut.dir/vector/vector.c.obj libs/data_struct/CMakeFiles/data_strut.dir/vector_void/vector_void.c.obj libs/data_struct/CMakeFiles/data_strut.dir/matrix/matrix.c.obj
+build libs/data_struct/libdata_strut.a: C_STATIC_LIBRARY_LINKER__data_strut_Debug libs/data_struct/CMakeFiles/data_strut.dir/bitset/bitset.c.obj libs/data_struct/CMakeFiles/data_strut.dir/unordered_set/unordered_set.c.obj libs/data_struct/CMakeFiles/data_strut.dir/ordered_set/ordered_set.c.obj libs/data_struct/CMakeFiles/data_strut.dir/vector/vector.c.obj libs/data_struct/CMakeFiles/data_strut.dir/vector_void/vector_void.c.obj libs/data_struct/CMakeFiles/data_strut.dir/matrix/matrix.c.obj libs/data_struct/CMakeFiles/data_strut.dir/matrix/matrix_ex.c.obj
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = libs\data_struct\CMakeFiles\data_strut.dir
   POST_BUILD = cd .
