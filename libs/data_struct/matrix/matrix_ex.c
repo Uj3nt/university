@@ -30,8 +30,8 @@ void task2(matrix m) {
 }
 
 /* Задание 3. Дана прямоугольная матрица. Упорядочить столбцы матрицы по неубыванию
-минимальных элементов столбцов:
- */
+минимальных элементов столбцов: */
+
 int GetMin(int *a, int n) {
     int min_value = a[0];
 
@@ -45,3 +45,29 @@ int GetMin(int *a, int n) {
 void task3(matrix m) {
     selectionSortColsMatrixByColCriteria(m, GetMin);
 }
+
+/* . Если данная квадратная матрица A симметрична, то заменить A**2. */
+
+matrix multiplicationMatrix(matrix m1, matrix m2) {
+    matrix res_m = getMemMatrix(m1.nRows, m1.nCols);
+
+    for (int i = 0; i < m1.nRows; ++i) {
+        for (int j = 0; j < m1.nCols; ++j) {
+            res_m.values[i][j] = 0;
+            for (int k = 0; k < m1.nRows; ++k) {
+                res_m.values[i][j] += m1.values[i][k] * m2.values[k][j];
+            }
+        }
+    }
+
+    return res_m;
+}
+
+void task4(matrix *m) {
+    if (isSquareMatrix(m)) {
+        *m = multiplicationMatrix(*m,*m);
+    } else {
+        printf("is not Square matrix");
+    }
+}
+
