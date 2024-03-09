@@ -46,7 +46,7 @@ void task3(matrix m) {
     selectionSortColsMatrixByColCriteria(m, GetMin);
 }
 
-/* . Если данная квадратная матрица A симметрична, то заменить A**2. */
+/* Задание 4. Если данная квадратная матрица A симметрична, то заменить A**2. */
 
 matrix multiplicationMatrix(matrix m1, matrix m2) {
     matrix res_m = getMemMatrix(m1.nRows, m1.nCols);
@@ -71,3 +71,51 @@ void task4(matrix *m) {
     }
 }
 
+/* Задание 5. Дана квадратная матрица. Если среди сумм элементов строк матрицы нет равных, то транспонировать матрицу.. */
+
+int isUnique(int *a, int n) {
+    for (int i = 0; i < n; ++i) {
+        for (int j = i + 1; j < n; ++j) {
+            if (a[i] == a[j]) {
+                return 0;
+            }
+        }
+    }
+    return 1;
+}
+
+int GetSum(int *a, int n) {
+    int sum = 0;
+
+    for (int i = 0; i < n; ++i) {
+        sum += a[i];
+    }
+
+    return sum;
+}
+
+
+int* getRowPredicateArray(matrix m, int (Predicate) (int*, int)) {
+    int PredicateArray[m.nRows];
+    for (int i = 0; i < m.nRows; ++i) {
+        for (int j = 0; j < m.nCols; ++j) {
+            PredicateArray[i] = Predicate(m.values[i], m.values[i][j]);
+        }
+    }
+    return PredicateArray;
+}
+
+
+void task5(matrix *m) {
+    int *SumArray[m->nRows];
+    *SumArray = getRowPredicateArray(*m, GetSum);
+
+    if (isUnique(SumArray, m->nRows)) {
+        transposeMatrix(m);
+    } else {
+        printf("Have Ununique sum rows");
+    }
+}
+
+/* Задание 6. Даны две квадратные матрицы 𝐴 и 𝐵. Определить, являются ли они взаимно
+обратными (𝐴 = 𝐵−1)  */
