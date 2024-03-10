@@ -119,3 +119,8 @@ void task5(matrix *m) {
 
 /* Задание 6. Даны две квадратные матрицы 𝐴 и 𝐵. Определить, являются ли они взаимно
 обратными (𝐴 = 𝐵−1)  */
+
+int IsInversMatrix(matrix m1, matrix m2) {
+    matrix m = getMemMatrix(m1.nRows, m1.nCols);
+    return isEMatrix(&m);
+}

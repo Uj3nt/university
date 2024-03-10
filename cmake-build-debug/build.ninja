@@ -172,6 +172,39 @@ build matrix_test.exe: C_EXECUTABLE_LINKER__matrix_test_Debug CMakeFiles/matrix_
   TARGET_IMPLIB = libmatrix_test.dll.a
   TARGET_PDB = matrix_test.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target matrix_ex_tests
+
+
+#############################################
+# Order-only phony target for matrix_ex_tests
+
+build cmake_object_order_depends_target_matrix_ex_tests: phony || CMakeFiles/matrix_ex_tests.dir
+
+build CMakeFiles/matrix_ex_tests.dir/matrix_ex_tests.c.obj: C_COMPILER__matrix_ex_tests_unscanned_Debug D$:/Programmig_SecondSem/SecondSem/matrix_ex_tests.c || cmake_object_order_depends_target_matrix_ex_tests
+  DEP_FILE = CMakeFiles\matrix_ex_tests.dir\matrix_ex_tests.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\matrix_ex_tests.dir
+  OBJECT_FILE_DIR = CMakeFiles\matrix_ex_tests.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target matrix_ex_tests
+
+
+#############################################
+# Link the executable matrix_ex_tests.exe
+
+build matrix_ex_tests.exe: C_EXECUTABLE_LINKER__matrix_ex_tests_Debug CMakeFiles/matrix_ex_tests.dir/matrix_ex_tests.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\matrix_ex_tests.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = matrix_ex_tests.exe
+  TARGET_IMPLIB = libmatrix_ex_tests.dll.a
+  TARGET_PDB = matrix_ex_tests.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -398,6 +431,8 @@ build libalgorithms.a: phony libs/algorithms/libalgorithms.a
 
 build libdata_strut.a: phony libs/data_struct/libdata_strut.a
 
+build matrix_ex_tests: phony matrix_ex_tests.exe
+
 build matrix_test: phony matrix_test.exe
 
 build vector_test: phony vector_test.exe
@@ -410,7 +445,7 @@ build vector_test: phony vector_test.exe
 #############################################
 # Folder: D:/Programmig_SecondSem/SecondSem/cmake-build-debug
 
-build all: phony Programmig_SecondSem.exe gg.exe vector_test.exe matrix_test.exe libs/all
+build all: phony Programmig_SecondSem.exe gg.exe vector_test.exe matrix_test.exe matrix_ex_tests.exe libs/all
 
 # =============================================================================
 

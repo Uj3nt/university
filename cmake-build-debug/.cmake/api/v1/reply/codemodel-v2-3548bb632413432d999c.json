@@ -22,7 +22,8 @@
 						0,
 						3,
 						4,
-						5
+						5,
+						6
 					]
 				},
 				{
@@ -91,7 +92,8 @@
 						2,
 						3,
 						4,
-						5
+						5,
+						6
 					]
 				}
 			],
@@ -123,6 +125,13 @@
 					"id" : "gg::@6890427a1f51a3e7e1df",
 					"jsonFile" : "target-gg-Debug-ef390d53a94cd32c2ea8.json",
 					"name" : "gg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "matrix_ex_tests::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-matrix_ex_tests-Debug-c8ca5d4260b528f99850.json",
+					"name" : "matrix_ex_tests",
 					"projectIndex" : 0
 				},
 				{
