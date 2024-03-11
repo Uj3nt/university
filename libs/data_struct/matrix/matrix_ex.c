@@ -65,7 +65,7 @@ matrix multiplicationMatrix(matrix m1, matrix m2) {
 
 void task4(matrix *m) {
     if (isSquareMatrix(m)) {
-        *m = multiplicationMatrix(*m,*m);
+        *m = multiplicationMatrix(*m, *m);
     } else {
         printf("is not Square matrix");
     }
@@ -95,7 +95,7 @@ int GetSum(int *a, int n) {
 }
 
 
-int* getRowPredicateArray(matrix m, int (Predicate) (int*, int)) {
+int *getRowPredicateArray(matrix m, int (Predicate)(int *, int)) {
     int PredicateArray[m.nRows];
     for (int i = 0; i < m.nRows; ++i) {
         for (int j = 0; j < m.nCols; ++j) {
@@ -123,4 +123,50 @@ void task5(matrix *m) {
 int IsInversMatrix(matrix m1, matrix m2) {
     matrix m = getMemMatrix(m1.nRows, m1.nCols);
     return isEMatrix(&m);
+}
+
+/* Задание 7. Найти сумму максимальных элементов всех псевдодиагоналей
+данной матрицы */
+
+int Max2(int a, int b) {
+    return a > b ? a : b;
+}
+
+int Min2(int a, int b) {
+    return a < b ? a : b;
+}
+
+void CreateArrayMaxValuesDiagonals(matrix m, int *a) {
+    for (int i = 0; i < m.nRows; ++i) {
+        for (int j = 0; j < m.nCols; ++j) {
+            a[i + j] = Max2(a[i + j], m.values[m.nRows - 1 - i][j]);
+        }
+    }
+}
+
+long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
+    int count_diagonals = m.nRows + m.nCols - 1;
+    int a[count_diagonals];
+
+    for (int i = 0;i < count_diagonals; ++i) {
+        a[i] = 0;
+    }
+
+    CreateArrayMaxValuesDiagonals(m, a);
+
+    long long sum = 0;
+
+    for (int i = 0; i < count_diagonals; ++i) {
+        sum += a[i];
+    }
+
+    int main_diagonal = m.values[0][0];
+
+    for (int i = 1; i < Min2(m.nRows, m.nCols); ++i) {
+       main_diagonal = Max2(m.values[i][i], main_diagonal);
+    }
+
+    sum -= main_diagonal;
+
+    return sum;
 }
