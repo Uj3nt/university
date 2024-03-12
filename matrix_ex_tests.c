@@ -15,13 +15,13 @@ int main() {
 
     matrix test_matrix1 = createMatrixFromArray(
             (int[]) {
-                    3, 2, 5, 4,
-                    1, 3, 6, 3,
-                    3, 2, 1, 2
+                    10, 7, 5, 6,
+                    3, 11, 8, 9,
+                    4, 1, 12, 2
             },
             3, 4
     );
 
-
-    printf("%lld",findSumOfMaxesOfPseudoDiagonal(test_matrix1));
+position pmax = getMaxValuePos(test_matrix1);
+    printf("%d", GetMinBeforeMax(test_matrix1, pmax));
 }

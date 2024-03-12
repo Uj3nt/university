@@ -170,3 +170,23 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
 
     return sum;
 }
+
+// 8 Задание.
+
+int GetMinBeforeMax(matrix m, position pmax) {
+    int min = INT_MAX;
+    for (int i = 0; i < m.nCols; ++i) {
+        for (int j = 0; j < pmax.rowIndex - abs(pmax.colIndex - i) + 1; ++j) {
+            min = Min2(min, m.values[j][i]);
+        }
+    }
+    return min;
+}
+
+int task8(matrix m) {
+    position pmax = getMaxValuePos(m);
+
+    return GetMinBeforeMax(m, pmax);
+}
+
+//9 Задание.
