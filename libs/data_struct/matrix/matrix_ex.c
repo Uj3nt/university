@@ -262,3 +262,23 @@ int getNSpecialElement(matrix m) {
     }
     return counter;
 }
+
+/* 12 Задание Дана квадратная матрица. Заменить предпоследнюю строку матрицы первым
+из столбцов, в котором находится минимальный элемент матрицы.*/
+
+position getLeftMin(matrix m) {
+    position p_min = getMinValuePos(m);
+    return p_min;
+}
+
+void swapPenultimateRow(matrix m, int n) {
+    int i = 0, j = 0;
+    position p_min = getLeftMin(m);
+    while (i < m.nRows && j < m.nCols) {
+        int temp = m.values[m.nRows - 2][j];
+        m.values[m.nRows - 2][j] = m.values[i][p_min.colIndex];
+        m.values[i][p_min.colIndex] =  temp;
+        i++;
+        j++;
+    }
+}
