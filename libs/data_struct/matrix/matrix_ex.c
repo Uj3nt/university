@@ -149,7 +149,7 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
     int count_diagonals = m.nRows + m.nCols - 1;
     int a[count_diagonals];
 
-    for (int i = 0;i < count_diagonals; ++i) {
+    for (int i = 0; i < count_diagonals; ++i) {
         a[i] = 0;
     }
 
@@ -164,7 +164,7 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
     int main_diagonal = m.values[0][0];
 
     for (int i = 1; i < Min2(m.nRows, m.nCols); ++i) {
-       main_diagonal = Max2(m.values[i][i], main_diagonal);
+        main_diagonal = Max2(m.values[i][i], main_diagonal);
     }
 
     sum -= main_diagonal;
@@ -203,7 +203,7 @@ float getDistance(int *a, int n) {
     return sqrtf(getSumSq(a, n));
 }
 
-void insertionSortRowsMatrixByRowCriteriaF(matrix m,float (*criteria)(int *, int)) {
+void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int)) {
     for (int i = 1; i < m.nRows; i++) {
         int j = i;
         while (j > 0 && criteria(m.values[j - 1], m.nCols) > criteria(m.values[j], m.nCols)) {
@@ -223,8 +223,8 @@ void sortByDistances(matrix m) {
 матрицы. Строки считать эквивалентными, если равны суммы их элементов. */
 
 int cmp_long_long(const void *pa, const void *pb) {
-    long long a = *(long long *)pa;
-    long long b = *(long long *)pb;
+    long long a = *(long long *) pa;
+    long long b = *(long long *) pb;
     return (a > b) - (a < b);
 }
 
@@ -251,3 +251,14 @@ int countEqClassesByRowsSum(matrix m) {
 
 /* 11 Задание.Дана матрица. Определить 𝑘 – количество "особых" элементов матрицы, считая
 элемент "особым" , если он больше суммы остальных элементов своего столбца */
+
+int getNSpecialElement(matrix m) {
+    int counter = 0;
+    for (int i = 0; i < m.nRows; i++) {
+        int max_rows = GetMaxInRows(m.values[i], m.nCols);
+        int sum = GetSum(m.values[i], m.nCols) - max_rows;
+        if (max_rows > sum)
+            counter++;
+    }
+    return counter;
+}
