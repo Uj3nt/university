@@ -1,3 +1,4 @@
+#include <math.h>
 #include "matrix.h"
 
 /* Задание 1.  Дана квадратная матрица, все элементы которой различны. Поменять местами
@@ -190,3 +191,30 @@ int task8(matrix m) {
 }
 
 //9 Задание.
+
+float getSumSq(int *a, int n) {
+    float sum = 0;
+    for (int i = 0; i < n; i++)
+        sum += pow(a[i], 2);
+    return sum;
+}
+
+float getDistance(int *a, int n) {
+    return sqrtf(getSumSq(a, n));
+}
+
+void insertionSortRowsMatrixByRowCriteriaF(matrix m,float (*criteria)(int *, int)) {
+    for (int i = 1; i < m.nRows; i++) {
+        int j = i;
+        while (j > 0 && criteria(m.values[j - 1], m.nCols) > criteria(m.values[j], m.nCols)) {
+            float *temp = m.values[j];
+            m.values[j] = m.values[j - 1];
+            m.values[j - 1] = (int *) temp;
+            j--;
+        }
+    }
+}
+
+void sortByDistances(matrix m) {
+    insertionSortRowsMatrixByRowCriteriaF(m, getDistance);
+}
