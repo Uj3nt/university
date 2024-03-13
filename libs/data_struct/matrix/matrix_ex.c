@@ -190,7 +190,7 @@ int task8(matrix m) {
     return GetMinBeforeMax(m, pmax);
 }
 
-//9 Задание.
+//9 Задание. Дано 𝑛 точек в 𝑚-мерном пространстве. Упорядочить точки по неубыванию их расстояний до начала координат.
 
 float getSumSq(int *a, int n) {
     float sum = 0;
@@ -218,3 +218,36 @@ void insertionSortRowsMatrixByRowCriteriaF(matrix m,float (*criteria)(int *, int
 void sortByDistances(matrix m) {
     insertionSortRowsMatrixByRowCriteriaF(m, getDistance);
 }
+
+/* 10 Задание. Определить количество классов эквивалентных строк данной прямоугольной
+матрицы. Строки считать эквивалентными, если равны суммы их элементов. */
+
+int cmp_long_long(const void *pa, const void *pb) {
+    long long a = *(long long *)pa;
+    long long b = *(long long *)pb;
+    return (a > b) - (a < b);
+}
+
+int countNUnique(long long *a, int n) {
+    int count = 1;
+    qsort(a, n, sizeof(long long), cmp_long_long);
+    for (int i = 1; i < n; i++) {
+        if (a[i] != a[i - 1])
+            count++;
+    }
+    return count;
+}
+
+int countEqClassesByRowsSum(matrix m) {
+    long long *row_sum[m.nRows];
+    for (int i = 0; i < m.nRows; i++) {
+        for (int j = 0; j < m.nCols; j++)
+            row_sum[i] += m.values[i][j];
+
+    }
+    int unique_sums = countNUnique(row_sum, m.nRows);
+    return unique_sums;
+}
+
+/* 11 Задание.Дана матрица. Определить 𝑘 – количество "особых" элементов матрицы, считая
+элемент "особым" , если он больше суммы остальных элементов своего столбца */
