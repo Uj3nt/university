@@ -310,3 +310,36 @@ int countNonDescendingRowsMatrices(matrix *ms, int nMatrix) {
     }
     return count;
 }
+
+/* 14 Задание. Дан массив целочисленных матриц. Вывести матрицы, имеющие наибольшее
+число нулевых строк */
+
+int countValues(const int *a, int n, int value) {
+    int counter = 0;
+    for (int i = 0; i < n; i++) {
+        if (a[i] == value)
+            counter++;
+    }
+    return counter;
+}
+
+int countZeroRows(matrix m) {
+    int counter = 0;
+    for (int i = 0; i < m.nRows; i++) {
+        if (countValues(m.values[i], m.nCols, 0) == m.nCols)
+            counter++;
+    }
+    return counter;
+}
+
+void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix) {
+    int max_zero_rows = 0;
+    for (int i = 0; i < nMatrix; i++) {
+        if (countZeroRows(ms[i]) > max_zero_rows)
+            max_zero_rows = countZeroRows(ms[i]);
+    }
+    for (int j = 0; j < nMatrix; j ++) {
+        if (countZeroRows(ms[j]) == max_zero_rows)
+            outputMatrix(ms[j]);
+    }
+}
