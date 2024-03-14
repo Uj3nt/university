@@ -343,3 +343,32 @@ void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix) {
             outputMatrix(ms[j]);
     }
 }
+
+/* 15 Задание. Дан массив целочисленных квадратных матриц. Вывести матрицы с наименьшей нормой. В качестве нормы матрицы взять максимум абсолютных величин
+ее элементов. */
+
+int matrixNorm(matrix m) {
+    int abs_max = 0;
+    for (int i = 0; i < m.nRows; i++) {
+        for (int j = 0; j < m.nCols; j++) {
+            int abs_value = abs(m.values[i][j]);
+            if (abs_value > abs_max)
+                abs_max = abs_value;
+        }
+    }
+    return abs_max;
+}
+
+void output_Matrix_MinNorm(matrix *ms, int nMatrix) {
+    int min_norm = matrixNorm(ms[0]);
+
+    for (int i = 1; i < nMatrix; i++) {
+        int current_norm = matrixNorm(ms[i]);
+        if (current_norm < min_norm)
+            min_norm = current_norm;
+    }
+    for (int i = 0; i < nMatrix; i++) {
+        if (matrixNorm(ms[i]) == min_norm)
+            outputMatrix(ms[i]);
+    }
+}
