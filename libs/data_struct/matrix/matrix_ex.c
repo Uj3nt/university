@@ -372,3 +372,47 @@ void output_Matrix_MinNorm(matrix *ms, int nMatrix) {
             outputMatrix(ms[i]);
     }
 }
+
+/* 16 Задание. *Дана матрица. Определить 𝑘 – количество "особых" элементов данной матрицы, считая элемент "особым" если в строке слева от него находятся только
+меньшие элементы, а справа – только бoльшие */
+
+bool isMoreThanLeftEl(int *a, int pos) {
+    for (int i = 0; i < pos; i++) {
+        if (a[i] > a[pos])
+            return false;
+    }
+    return true;
+}
+
+bool isLesThanRightEl(int *a, int n, int pos) {
+    for (int i = pos + 1; i < n; i++) {
+        if (a[i] < a[pos])
+            return false;
+    }
+    return true;
+}
+
+int getNSpecialElement2(matrix m) {
+    int counter = 0;
+    for (int i = 0; i < m.nRows; i++) {
+        int pos = m.nCols / 2;
+        bool flag = true;
+        while (flag || pos != m.nCols || pos != 0) {
+            bool r_res = isLesThanRightEl(m.values[i], m.nCols, pos);
+            bool l_res = isMoreThanLeftEl(m.values[i], pos);
+            if (r_res && pos == 0 || l_res && pos == m.nCols) {
+                counter++;
+                break;
+            }
+            if (r_res && l_res) {
+                counter++;
+                flag = false;
+            } else if (r_res && !l_res)
+                pos++;
+            else
+                pos--;
+
+        }
+    }
+    return counter;
+}
