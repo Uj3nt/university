@@ -416,3 +416,45 @@ int getNSpecialElement2(matrix m) {
     }
     return counter;
 }
+
+/* 17 Задание. Каждая строка данной матрицы представляет собой координаты вектора в
+пространстве. Определить, какой из этих векторов образует максимальный угол
+с данным вектором  */
+
+double getScalarProduct(int *a, int *b, int n) {
+    double res = 0;
+    for (int i = 0; i < n; i++)
+        res += a[i] * b[i];
+
+    return res;
+}
+
+double getVectorLength(int *a, int n) {
+    double res = getScalarProduct(a, a, n);
+    return sqrt(res);
+}
+
+double getCosine(int *a, int *b, int n) {
+    double scalar_product = getScalarProduct(a, b, n);
+    double len_a = getVectorLength(a, n);
+    double len_b = getVectorLength(b, n);
+    return scalar_product / (len_a * len_b);
+}
+
+int getVectorIndexWithMaxAngle(matrix m, int *b) {
+    int max_i = 0;
+    double max_cos = 1;
+
+    for (int i = 0; i < m.nRows; i++) {
+        double cosine = getCosine(m.values[i], b, m.nCols);
+        if (cosine < max_cos) {
+            max_cos = cosine;
+            max_i = i;
+        }
+    }
+
+    return max_i;
+}
+
+/* 18 Задание. Дана целочисленная квадратная матрица, все элементы которой различны.
+Найти скалярное произведение строки, в которой находится наибольший элемент матрицы, на столбец с наименьшим элементом */
