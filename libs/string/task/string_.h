@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <ctype.h>
+#include <memory.h>
 
 // Возвращает количество символов в строке
 size_t strlen_v1(char *s) ;
