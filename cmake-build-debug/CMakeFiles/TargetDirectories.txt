@@ -13,3 +13,6 @@ D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/algorithms/CMakeFiles/r
 D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/data_struct/CMakeFiles/data_strut.dir
 D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/data_struct/CMakeFiles/edit_cache.dir
 D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/data_struct/CMakeFiles/rebuild_cache.dir
+D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/string/CMakeFiles/string.dir
+D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/string/CMakeFiles/edit_cache.dir
+D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/string/CMakeFiles/rebuild_cache.dir

@@ -47,7 +47,7 @@ cmake_ninja_workdir = D$:/Programmig_SecondSem/SecondSem/cmake-build-debug/
 #############################################
 # Order-only phony target for Programmig_SecondSem
 
-build cmake_object_order_depends_target_Programmig_SecondSem: phony || cmake_object_order_depends_target_algorithms
+build cmake_object_order_depends_target_Programmig_SecondSem: phony || cmake_object_order_depends_target_algorithms cmake_object_order_depends_target_string
 
 build CMakeFiles/Programmig_SecondSem.dir/main.c.obj: C_COMPILER__Programmig_SecondSem_unscanned_Debug D$:/Programmig_SecondSem/SecondSem/main.c || cmake_object_order_depends_target_Programmig_SecondSem
   DEP_FILE = CMakeFiles\Programmig_SecondSem.dir\main.c.obj.d
@@ -63,9 +63,9 @@ build CMakeFiles/Programmig_SecondSem.dir/main.c.obj: C_COMPILER__Programmig_Sec
 #############################################
 # Link the executable Programmig_SecondSem.exe
 
-build Programmig_SecondSem.exe: C_EXECUTABLE_LINKER__Programmig_SecondSem_Debug CMakeFiles/Programmig_SecondSem.dir/main.c.obj | libs/algorithms/libalgorithms.a || libs/algorithms/libalgorithms.a
+build Programmig_SecondSem.exe: C_EXECUTABLE_LINKER__Programmig_SecondSem_Debug CMakeFiles/Programmig_SecondSem.dir/main.c.obj | libs/string/libstring.a libs/algorithms/libalgorithms.a || libs/algorithms/libalgorithms.a libs/string/libstring.a
   FLAGS = -g
-  LINK_LIBRARIES = libs/algorithms/libalgorithms.a  -ldata_struct  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = libs/string/libstring.a  libs/algorithms/libalgorithms.a  -ldata_struct  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Programmig_SecondSem.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -417,6 +417,65 @@ build libs/data_struct/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 build libs/data_struct/rebuild_cache: phony libs/data_struct/CMakeFiles/rebuild_cache.util
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Programmig_SecondSem/SecondSem/libs/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target string
+
+
+#############################################
+# Order-only phony target for string
+
+build cmake_object_order_depends_target_string: phony || libs/string/CMakeFiles/string.dir
+
+build libs/string/CMakeFiles/string.dir/task/string_.c.obj: C_COMPILER__string_unscanned_Debug D$:/Programmig_SecondSem/SecondSem/libs/string/task/string_.c || cmake_object_order_depends_target_string
+  DEP_FILE = libs\string\CMakeFiles\string.dir\task\string_.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = libs\string\CMakeFiles\string.dir
+  OBJECT_FILE_DIR = libs\string\CMakeFiles\string.dir\task
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target string
+
+
+#############################################
+# Link the static library libs\string\libstring.a
+
+build libs/string/libstring.a: C_STATIC_LIBRARY_LINKER__string_Debug libs/string/CMakeFiles/string.dir/task/string_.c.obj
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = libs\string\CMakeFiles\string.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = libs\string\libstring.a
+  TARGET_PDB = string.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build libs/string/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Programmig_SecondSem\SecondSem\cmake-build-debug\libs\string && "E:\MoiCi\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build libs/string/edit_cache: phony libs/string/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build libs/string/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Programmig_SecondSem\SecondSem\cmake-build-debug\libs\string && "E:\MoiCi\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SD:\Programmig_SecondSem\SecondSem -BD:\Programmig_SecondSem\SecondSem\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build libs/string/rebuild_cache: phony libs/string/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
 # Target aliases.
 
 build Programmig_SecondSem: phony Programmig_SecondSem.exe
@@ -431,9 +490,13 @@ build libalgorithms.a: phony libs/algorithms/libalgorithms.a
 
 build libdata_strut.a: phony libs/data_struct/libdata_strut.a
 
+build libstring.a: phony libs/string/libstring.a
+
 build matrix_ex_tests: phony matrix_ex_tests.exe
 
 build matrix_test: phony matrix_test.exe
+
+build string: phony libs/string/libstring.a
 
 build vector_test: phony vector_test.exe
 
@@ -452,7 +515,7 @@ build all: phony Programmig_SecondSem.exe gg.exe vector_test.exe matrix_test.exe
 #############################################
 # Folder: D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs
 
-build libs/all: phony libs/algorithms/all libs/data_struct/all
+build libs/all: phony libs/algorithms/all libs/data_struct/all libs/string/all
 
 # =============================================================================
 
@@ -469,20 +532,27 @@ build libs/algorithms/all: phony libs/algorithms/libalgorithms.a
 build libs/data_struct/all: phony libs/data_struct/libdata_strut.a
 
 # =============================================================================
+
+#############################################
+# Folder: D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/string
+
+build libs/string/all: phony libs/string/libstring.a
+
+# =============================================================================
 # Built-in targets
 
 
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake D$:/Programmig_SecondSem/SecondSem/CMakeLists.txt D$:/Programmig_SecondSem/SecondSem/libs/CMakeLists.txt D$:/Programmig_SecondSem/SecondSem/libs/algorithms/CMakeLists.txt D$:/Programmig_SecondSem/SecondSem/libs/data_struct/CMakeLists.txt E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake
+build build.ninja: RERUN_CMAKE | CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake D$:/Programmig_SecondSem/SecondSem/CMakeLists.txt D$:/Programmig_SecondSem/SecondSem/libs/CMakeLists.txt D$:/Programmig_SecondSem/SecondSem/libs/algorithms/CMakeLists.txt D$:/Programmig_SecondSem/SecondSem/libs/data_struct/CMakeLists.txt D$:/Programmig_SecondSem/SecondSem/libs/string/CMakeLists.txt E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake D$:/Programmig_SecondSem/SecondSem/CMakeLists.txt D$:/Programmig_SecondSem/SecondSem/libs/CMakeLists.txt D$:/Programmig_SecondSem/SecondSem/libs/algorithms/CMakeLists.txt D$:/Programmig_SecondSem/SecondSem/libs/data_struct/CMakeLists.txt E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake: phony
+build CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake D$:/Programmig_SecondSem/SecondSem/CMakeLists.txt D$:/Programmig_SecondSem/SecondSem/libs/CMakeLists.txt D$:/Programmig_SecondSem/SecondSem/libs/algorithms/CMakeLists.txt D$:/Programmig_SecondSem/SecondSem/libs/data_struct/CMakeLists.txt D$:/Programmig_SecondSem/SecondSem/libs/string/CMakeLists.txt E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake E$:/MoiCi/CLion$ 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake: phony
 
 
 #############################################

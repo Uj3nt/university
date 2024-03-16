@@ -1,11 +1,9 @@
 {
+	"archive" : {},
 	"artifacts" : 
 	[
 		{
-			"path" : "vector_test.exe"
-		},
-		{
-			"path" : "vector_test.pdb"
+			"path" : "libs/string/libstring.a"
 		}
 	],
 	"backtrace" : 1,
@@ -13,11 +11,11 @@
 	{
 		"commands" : 
 		[
-			"add_executable"
+			"add_library"
 		],
 		"files" : 
 		[
-			"CMakeLists.txt"
+			"libs/string/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -27,7 +25,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 14,
+				"line" : 1,
 				"parent" : 0
 			}
 		]
@@ -56,32 +54,13 @@
 			]
 		}
 	],
-	"id" : "vector_test::@6890427a1f51a3e7e1df",
-	"link" : 
-	{
-		"commandFragments" : 
-		[
-			{
-				"fragment" : "-g",
-				"role" : "flags"
-			},
-			{
-				"fragment" : "",
-				"role" : "flags"
-			},
-			{
-				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
-				"role" : "libraries"
-			}
-		],
-		"language" : "C"
-	},
-	"name" : "vector_test",
-	"nameOnDisk" : "vector_test.exe",
+	"id" : "string::@3f2b1fb9d1440f41f43e",
+	"name" : "string",
+	"nameOnDisk" : "libstring.a",
 	"paths" : 
 	{
-		"build" : ".",
-		"source" : "."
+		"build" : "libs/string",
+		"source" : "libs/string"
 	},
 	"sourceGroups" : 
 	[
@@ -91,6 +70,13 @@
 			[
 				0
 			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				1
+			]
 		}
 	],
 	"sources" : 
@@ -98,9 +84,14 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "vector_test.c",
+			"path" : "libs/string/task/string_.c",
 			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "libs/string/task/string_.h",
+			"sourceGroupIndex" : 1
 		}
 	],
-	"type" : "EXECUTABLE"
+	"type" : "STATIC_LIBRARY"
 }

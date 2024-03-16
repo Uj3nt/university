@@ -23,7 +23,7 @@
 						3,
 						4,
 						5,
-						6
+						7
 					]
 				},
 				{
@@ -31,7 +31,8 @@
 					"childIndexes" : 
 					[
 						2,
-						3
+						3,
+						4
 					],
 					"jsonFile" : "directory-libs-Debug-dd7a5ca29a7a50124f40.json",
 					"minimumCMakeVersion" : 
@@ -71,6 +72,21 @@
 					[
 						2
 					]
+				},
+				{
+					"build" : "libs/string",
+					"jsonFile" : "directory-libs.string-Debug-ab1e794c0732bc70e943.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "libs/string",
+					"targetIndexes" : 
+					[
+						6
+					]
 				}
 			],
 			"name" : "Debug",
@@ -82,7 +98,8 @@
 						0,
 						1,
 						2,
-						3
+						3,
+						4
 					],
 					"name" : "Programmig_SecondSem",
 					"targetIndexes" : 
@@ -93,7 +110,8 @@
 						3,
 						4,
 						5,
-						6
+						6,
+						7
 					]
 				}
 			],
@@ -102,7 +120,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Programmig_SecondSem::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Programmig_SecondSem-Debug-8fcd9f56787ca7996ac4.json",
+					"jsonFile" : "target-Programmig_SecondSem-Debug-d3cb1559c4856d6647f4.json",
 					"name" : "Programmig_SecondSem",
 					"projectIndex" : 0
 				},
@@ -123,28 +141,35 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "gg::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-gg-Debug-ef390d53a94cd32c2ea8.json",
+					"jsonFile" : "target-gg-Debug-37512f98a0a3b2e8082f.json",
 					"name" : "gg",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "matrix_ex_tests::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-matrix_ex_tests-Debug-c8ca5d4260b528f99850.json",
+					"jsonFile" : "target-matrix_ex_tests-Debug-db9fdf7302f993495ec2.json",
 					"name" : "matrix_ex_tests",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "matrix_test::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-matrix_test-Debug-214754d084935de7e748.json",
+					"jsonFile" : "target-matrix_test-Debug-d68f25154f3f974835ac.json",
 					"name" : "matrix_test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "string::@3f2b1fb9d1440f41f43e",
+					"jsonFile" : "target-string-Debug-49d19201e102a2ee313a.json",
+					"name" : "string",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "vector_test::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-vector_test-Debug-b0a73f9963894625546e.json",
+					"jsonFile" : "target-vector_test-Debug-9153498a854c57c55e7c.json",
 					"name" : "vector_test",
 					"projectIndex" : 0
 				}
