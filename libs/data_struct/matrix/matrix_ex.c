@@ -245,7 +245,7 @@ int countEqClassesByRowsSum(matrix m) {
             row_sum[i] += m.values[i][j];
 
     }
-    int unique_sums = countNUnique(*row_sum, m.nRows);
+    int unique_sums = countNUnique(row_sum, m.nRows);
     return unique_sums;
 }
 
