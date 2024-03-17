@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "vector_test.exe"
+			"path" : "string_test.exe"
 		},
 		{
-			"path" : "vector_test.pdb"
+			"path" : "string_test.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -27,7 +27,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 17,
+				"line" : 18,
 				"parent" : 0
 			}
 		]
@@ -56,7 +56,7 @@
 			]
 		}
 	],
-	"id" : "vector_test::@6890427a1f51a3e7e1df",
+	"id" : "string_test::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -76,8 +76,8 @@
 		],
 		"language" : "C"
 	},
-	"name" : "vector_test",
-	"nameOnDisk" : "vector_test.exe",
+	"name" : "string_test",
+	"nameOnDisk" : "string_test.exe",
 	"paths" : 
 	{
 		"build" : ".",
@@ -98,7 +98,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "vector_test.c",
+			"path" : "string_test.c",
 			"sourceGroupIndex" : 0
 		}
 	],
