@@ -97,3 +97,22 @@ char* copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDesti
     return beginDestination;
 }
 
+
+// string task1
+
+char* getEndOfString(char *s) {
+    return s + strlen_(s) - 1;
+}
+
+void removeNonLetters(char *s) {
+    char *endSource = getEndOfString(s);
+    char *destination = copyIf(s, endSource, s, isgraph);
+    *destination = '\0';
+}
+
+
+
+
+
+
+

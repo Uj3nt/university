@@ -1,5 +1,18 @@
 #include <assert.h>
 #include "libs/string/task/string_.c"
+#define ASSERT_STRING(expected, got) assertString(expected, got, \
+__FILE__, __FUNCTION__, __LINE__)
+
+
+void assertString(const char *expected, char *got, char const *fileName, char const *funcName, int line) {
+    if (strcmp(expected, got)) {
+        fprintf(stderr, "File %s\n", fileName);
+        fprintf(stderr, "%s - failed on line %d\n", funcName, line);
+        fprintf(stderr, "Expected: \"%s\"\n", expected);
+        fprintf(stderr, "Got: \"%s\"\n\n", got);
+    } else
+        fprintf(stderr, "%s - OK\n", funcName);
+}
 
 void strlen_v1_test() {
     char a[] = "Hello";
@@ -272,6 +285,13 @@ void string_tests() {
     copyIF_revers_tests();
 }
 
+void test_assertString() {
+    char s[] = "321Hi";
+    ASSERT_STRING("321Hi", s);
+}
+
+
 int main() {
+    test_assertString();
     string_tests();
 }
