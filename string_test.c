@@ -290,8 +290,13 @@ void test_assertString() {
     ASSERT_STRING("321Hi", s);
 }
 
-
+void test_deleteExtraSpase() {
+    char s[] = "Hi      Men   ";
+    removeExtraSpaces(s, getEndOfString(s), s);
+    ASSERT_STRING("Hi Men", s);
+}
 int main() {
+    test_deleteExtraSpase();
     test_assertString();
     string_tests();
 }

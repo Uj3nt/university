@@ -110,6 +110,20 @@ void removeNonLetters(char *s) {
     *destination = '\0';
 }
 
+// string task2
+
+void removeExtraSpaces(char *beginSource, char *endSource, char *beginDestination) {
+    while (beginSource != endSource) {
+        if (!isspace(*beginSource) || !isspace(*(beginSource + 1))) {
+            *beginDestination = *beginSource;
+            beginDestination++;
+        }
+
+        beginSource++;
+    }
+    *beginDestination= '\0';
+}
+
 
 
 
