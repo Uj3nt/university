@@ -295,7 +295,15 @@ void test_deleteExtraSpase() {
     removeExtraSpaces(s, getEndOfString(s), s);
     ASSERT_STRING("Hi Men", s);
 }
+
+void test_digitToStart() {
+    char s[] = "d2d2 22dd 1ffs2";
+    digitToStart(s);
+    ASSERT_STRING("22dd 22dd 12ffs", s);
+}
+
 int main() {
+    test_digitToStart();
     test_deleteExtraSpase();
     test_assertString();
     string_tests();

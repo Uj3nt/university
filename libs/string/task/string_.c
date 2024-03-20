@@ -1,5 +1,10 @@
 #include "string_.h"
 
+typedef struct WordDescriptor {
+    char *begin; // позиция начала слова
+    char *end; // позиция первого символа, после последнего символа
+} WordDescriptor;
+
 size_t strlen_v1(char *s) {
     int i = 0;
     while (s[i] != '\0')
@@ -66,13 +71,15 @@ int strcmp(const char *lhs, const char *rhs) {
     return *lhs - *rhs;
 }
 
-char *copy(const char *beginSource, const char *endSource, char *beginDestination) {
-    memcpy(beginDestination, beginSource, endSource - beginSource);
-    return beginDestination + *endSource - *beginSource;
+char* copy(const char *beginSource, const char *endSource, char *beginDestination) {
+    size_t size = endSource - beginSource;
+    memcpy(beginDestination, beginSource, size);
+
+    return beginDestination + size;
 }
 
 char* copyIf(char *beginSource, const char *endSource, char *beginDestination, int (*f)(int)) {
-    while (beginSource != endSource) {
+    while (beginSource <= endSource) {
         if (f(*beginSource)) {
             *beginDestination = *beginSource;
             beginDestination++;
@@ -124,7 +131,33 @@ void removeExtraSpaces(char *beginSource, char *endSource, char *beginDestinatio
     *beginDestination= '\0';
 }
 
+// string task3
 
+int getWord(char *beginSearch, WordDescriptor *word) {
+    word->begin = findNonSpace(beginSearch);
+
+    if (*word->begin == '\0') {
+        return 0;
+    }
+    word->end = findSpace(word->begin);
+
+    return 1;
+}
+
+void digitToStartWord(WordDescriptor word) {
+    char *endStringBuffer = copy(word.begin, word.end,stringBuffer);
+    char *recPosition = copyIf(stringBuffer,endStringBuffer, word.begin, isdigit);
+    copyIf(stringBuffer, endStringBuffer, recPosition, isalpha);
+}
+
+void digitToStart(char *beginString) {
+    char *beginSearch = beginString;
+    WordDescriptor word;
+    while (getWord(beginSearch, &word)) {
+       digitToStartWord(word);
+       beginSearch = word.end;
+    }
+}
 
 
 

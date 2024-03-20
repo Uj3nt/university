@@ -1,9 +1,12 @@
 #ifndef INC_STRING__H
 #define INC_STRING__H
+#define MAX_STRING_SIZE 50
 
 #include <stdio.h>
 #include <ctype.h>
 #include <memory.h>
+
+char stringBuffer[MAX_STRING_SIZE + 1];
 
 // Возвращает количество символов в строке
 size_t strlen_v1(char *s) ;
