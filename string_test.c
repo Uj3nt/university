@@ -302,8 +302,15 @@ void test_digitToStart() {
     ASSERT_STRING("22dd 22dd 12ffs", s);
 }
 
+void test_digitsReplaceSpase() {
+    char s[] = "a2a1a";
+    digitsReplaceSpace(s);
+    ASSERT_STRING("a  a a", s);
+}
+
 int main() {
     test_digitToStart();
+    test_digitsReplaceSpase();
     test_deleteExtraSpase();
     test_assertString();
     string_tests();

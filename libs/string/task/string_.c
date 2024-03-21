@@ -159,6 +159,33 @@ void digitToStart(char *beginString) {
     }
 }
 
+// task 4
+
+
+char *digitReplaceSpace(char *s, char *prtWrite ) {
+    for (int i = 0; i < *s - 48; ++i) {
+        *prtWrite = ' ';
+        prtWrite++;
+    }
+    return prtWrite;
+}
+
+void digitsReplaceSpace(char *s) {
+    char *ptrWrite = s;
+    char *ptrRead = stringBuffer;
+    char *endStringBuffer = copy(s, getEndOfString(s) + 1,ptrRead);
+
+    while (ptrRead <= endStringBuffer) {
+        if (isdigit(*ptrRead)) {
+            ptrWrite = digitReplaceSpace(ptrRead, ptrWrite);
+        } else {
+            *ptrWrite = *ptrRead;
+            ptrWrite++;
+        }
+        ptrRead++;
+    }
+    *ptrWrite = '\0';
+}
 
 
 
