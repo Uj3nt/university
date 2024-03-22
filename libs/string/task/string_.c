@@ -71,14 +71,24 @@ int strcmp(const char *lhs, const char *rhs) {
     return *lhs - *rhs;
 }
 
-char* copy(const char *beginSource, const char *endSource, char *beginDestination) {
+
+int strncmp(const char *str1, const char *str2, size_t n) {
+    char *end = str1 + n;
+    int result = 0;
+
+    for (; result == 0 && str1 != end && (*str1 || *str2); result = *(str1++) - *(str2++));
+
+    return result;
+}
+
+char *copy(const char *beginSource, const char *endSource, char *beginDestination) {
     size_t size = endSource - beginSource;
     memcpy(beginDestination, beginSource, size);
 
     return beginDestination + size;
 }
 
-char* copyIf(char *beginSource, const char *endSource, char *beginDestination, int (*f)(int)) {
+char *copyIf(char *beginSource, const char *endSource, char *beginDestination, int (*f)(int)) {
     while (beginSource <= endSource) {
         if (f(*beginSource)) {
             *beginDestination = *beginSource;
@@ -91,7 +101,7 @@ char* copyIf(char *beginSource, const char *endSource, char *beginDestination, i
     return beginDestination;
 }
 
-char* copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDestination, int (*f)(int)) {
+char *copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDestination, int (*f)(int)) {
     while (rbeginSource != rendSource) {
         if (f(*rbeginSource)) {
             *beginDestination = *rbeginSource;
@@ -107,7 +117,7 @@ char* copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDesti
 
 // string task1
 
-char* getEndOfString(char *s) {
+char *getEndOfString(char *s) {
     return s + strlen_(s) - 1;
 }
 
@@ -128,7 +138,7 @@ void removeExtraSpaces(char *beginSource, char *endSource, char *beginDestinatio
 
         beginSource++;
     }
-    *beginDestination= '\0';
+    *beginDestination = '\0';
 }
 
 // string task3
@@ -145,8 +155,8 @@ int getWord(char *beginSearch, WordDescriptor *word) {
 }
 
 void digitToStartWord(WordDescriptor word) {
-    char *endStringBuffer = copy(word.begin, word.end,stringBuffer);
-    char *recPosition = copyIf(stringBuffer,endStringBuffer, word.begin, isdigit);
+    char *endStringBuffer = copy(word.begin, word.end, stringBuffer);
+    char *recPosition = copyIf(stringBuffer, endStringBuffer, word.begin, isdigit);
     copyIf(stringBuffer, endStringBuffer, recPosition, isalpha);
 }
 
@@ -154,15 +164,15 @@ void digitToStart(char *beginString) {
     char *beginSearch = beginString;
     WordDescriptor word;
     while (getWord(beginSearch, &word)) {
-       digitToStartWord(word);
-       beginSearch = word.end;
+        digitToStartWord(word);
+        beginSearch = word.end;
     }
 }
 
 // task 4
 
 
-char *digitReplaceSpace(char *s, char *prtWrite ) {
+char *digitReplaceSpace(char *s, char *prtWrite) {
     for (int i = 0; i < *s - 48; ++i) {
         *prtWrite = ' ';
         prtWrite++;
@@ -173,7 +183,7 @@ char *digitReplaceSpace(char *s, char *prtWrite ) {
 void digitsReplaceSpace(char *s) {
     char *ptrWrite = s;
     char *ptrRead = stringBuffer;
-    char *endStringBuffer = copy(s, getEndOfString(s) + 1,ptrRead);
+    char *endStringBuffer = copy(s, getEndOfString(s) + 1, ptrRead);
 
     while (ptrRead <= endStringBuffer) {
         if (isdigit(*ptrRead)) {
@@ -187,6 +197,40 @@ void digitsReplaceSpace(char *s) {
     *ptrWrite = '\0';
 }
 
+// task 5
+
+void replace(char *source, char *w1, char *w2) {
+    size_t w1Size = strlen_(w1);
+    size_t w2Size = strlen_(w2);
+
+    WordDescriptor word1 = {w1, w1 + w1Size};
+    WordDescriptor word2 = {w2, w2 + w2Size};
+
+    char *readPtr, *recPtr;
+
+    if (w1Size >= w2Size) {
+        readPtr = source;
+        recPtr = source;
+    } else {
+        copy(source, getEndOfString(source) + 1, stringBuffer);
+        readPtr = stringBuffer;
+        recPtr = source;
+    }
+
+    while (*readPtr != '\0') {
+        if (strncmp(readPtr, w1, w1Size) == 0) {
+            copy(word2.begin, word2.end, recPtr);
+            readPtr += w1Size;
+            recPtr += w2Size;
+        } else {
+            *recPtr = *readPtr;
+            readPtr++;
+            recPtr++;
+        }
+    }
+
+    *recPtr = '\0';
+}
 
 
 

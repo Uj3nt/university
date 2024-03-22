@@ -308,7 +308,17 @@ void test_digitsReplaceSpase() {
     ASSERT_STRING("a  a a", s);
 }
 
+void test_replace() {
+    char s[] = "zxc";
+    char *w1 = "zxc";
+    char *w2 = "bubuntu";
+    replace(s, w1, w2);
+    ASSERT_STRING("bubuntu", s);
+}
+
+
 int main() {
+    test_replace();
     test_digitToStart();
     test_digitsReplaceSpase();
     test_deleteExtraSpase();

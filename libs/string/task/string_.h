@@ -1,6 +1,6 @@
 #ifndef INC_STRING__H
 #define INC_STRING__H
-#define MAX_STRING_SIZE 50
+#define MAX_STRING_SIZE 100
 
 #include <stdio.h>
 #include <ctype.h>
