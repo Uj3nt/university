@@ -232,5 +232,23 @@ void replace(char *source, char *w1, char *w2) {
     *recPtr = '\0';
 }
 
+// task 6
+
+int isSortWords(char *s) {
+    WordDescriptor w1;
+    WordDescriptor w2;
+
+    while (getWord(s,&w1)) {
+        if (getWord(w1.end, &w2)) {
+            if (*w1.begin > *w2.begin) {
+                return 0;
+            }
+        }
+        s = w1.end;
+    }
+
+    return 1;
+}
+
 
 

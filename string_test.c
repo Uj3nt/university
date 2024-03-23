@@ -316,8 +316,18 @@ void test_replace() {
     ASSERT_STRING("bubuntu", s);
 }
 
+void test_isSortedWords() {
+    char s[] = "a b c";
+    int res = isSortWords(s);
+    assert(res == 1);
+
+    char x[] = "simple apex donk";
+    int res_2 = isSortWords(x);;
+    assert(res_2 == 0);
+}
 
 int main() {
+    test_isSortedWords();
     test_replace();
     test_digitToStart();
     test_digitsReplaceSpase();
