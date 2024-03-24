@@ -268,3 +268,32 @@ void getBagOfWords(BagOfWords *bag, char *s) {
     }
 
 }
+
+// task 8
+
+int isPakindromeWorld(WordDescriptor *word) {
+    int word_len = word->end - word->begin;
+    for (int i = 0; i < word_len/2; ++i) {
+        if ( *(word->begin + i) != *(word->end - i - 1) ) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+
+int GetCountPalindromesInString(char *s) {
+    replace(s, ",", " ");
+    WordDescriptor word;
+    char *BeginWord = s;
+    int counter = 0;
+
+    while (getWord(BeginWord,&word)) {
+        if (isPakindromeWorld(&word)) {
+            counter++;
+        }
+        BeginWord = word.end;
+    }
+    return  counter;
+}
+

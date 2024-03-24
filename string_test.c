@@ -326,12 +326,22 @@ void test_isSortedWords() {
     assert(res_2 == 0);
 }
 
+void test_GetCountPalindromesInString() {
+    char s[] = "aba, xzazx, xzx";
+    int res = GetCountPalindromesInString(s);
+
+    assert(res == 3);
+}
+
+
+
 int main() {
-    test_isSortedWords();
-    test_replace();
-    test_digitToStart();
-    test_digitsReplaceSpase();
-    test_deleteExtraSpase();
-    test_assertString();
-    string_tests();
+    test_GetCountPalindromesInString();
+//    test_isSortedWords();
+//    test_replace();
+//    test_digitToStart();
+//    test_digitsReplaceSpase();
+//    test_deleteExtraSpase();
+//    test_assertString();
+//    string_tests();
 }
