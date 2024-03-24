@@ -5,6 +5,12 @@ typedef struct WordDescriptor {
     char *end; // позиция первого символа, после последнего символа
 } WordDescriptor;
 
+typedef struct BagOfWords {
+    WordDescriptor words[MAX_N_WORDS_IN_STRING];
+    size_t size;
+} BagOfWords;
+
+
 size_t strlen_v1(char *s) {
     int i = 0;
     while (s[i] != '\0')
@@ -250,5 +256,15 @@ int isSortWords(char *s) {
     return 1;
 }
 
+// task 7
 
+void getBagOfWords(BagOfWords *bag, char *s) {
+    char *readPtr = s;
+    WordDescriptor word;
+    for (int i = 0; getWord(readPtr, &word); i++) {
+        bag->words[i].begin = word.begin;
+        bag->words[i].end = word.end;
+        bag->size = i;
+    }
 
+}
