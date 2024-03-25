@@ -297,3 +297,26 @@ int GetCountPalindromesInString(char *s) {
     return  counter;
 }
 
+// task 9
+
+void *GetStringFrom2(char *s1, char *s2, char *res) {
+    WordDescriptor word1, word2;
+    int isW1Found, isW2Found;
+    char *beginSearch1 = s1, *beginSearch2 = s2;
+    char* WritePtr = res;
+
+    while ((isW1Found = getWord(beginSearch1, &word1)), (isW2Found = getWord(beginSearch2, &word2)), isW1Found || isW2Found) {
+        if (isW1Found) {
+            WritePtr = copy(word1.begin, word1.end, WritePtr);
+            *WritePtr++ = ' ';
+            beginSearch1 = word1.end;
+        }
+
+        if (isW2Found) {
+            WritePtr = copy(word2.begin, word2.end, WritePtr);;
+            *WritePtr++ = ' ';
+            beginSearch2 = word2.end;
+        }
+    }
+    *(--WritePtr) = '\0';
+}

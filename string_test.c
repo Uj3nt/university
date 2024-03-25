@@ -333,10 +333,21 @@ void test_GetCountPalindromesInString() {
     assert(res == 3);
 }
 
+void test_GetStringFrom2() {
+    char s1[] = "gg hf gg gl";
+    char s2[] = "abc abc";
+    char res[20];
+    GetStringFrom2(s1, s2, res);
+
+
+    ASSERT_STRING("gg abc hf abc gg gl", res);
+}
+
 
 
 int main() {
-    test_GetCountPalindromesInString();
+    test_GetStringFrom2();
+//    test_GetCountPalindromesInString();
 //    test_isSortedWords();
 //    test_replace();
 //    test_digitToStart();
