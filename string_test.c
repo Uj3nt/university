@@ -343,10 +343,19 @@ void test_GetStringFrom2() {
     ASSERT_STRING("gg abc hf abc gg gl", res);
 }
 
+void test_getStringRevers() {
+    char s1[] = "aaa bbb ccc ddd";
+    getStringRevers(s1);
+
+
+    ASSERT_STRING(" ddd ccc bbb aaa", s1);
+}
+
 
 
 int main() {
-    test_GetStringFrom2();
+    test_getStringRevers();
+//    test_GetStringFrom2();
 //    test_GetCountPalindromesInString();
 //    test_isSortedWords();
 //    test_replace();

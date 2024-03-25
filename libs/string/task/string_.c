@@ -55,7 +55,7 @@ char *findSpace(char *begin) {
 }
 
 char *findNonSpaceReverse(char *rbegin, const char *rend) {
-    while (isspace(*rbegin) && rbegin != rend) {
+    while (isspace(*rbegin) && rbegin <= rend) {
         rbegin--;
     }
     return rbegin;
@@ -319,4 +319,34 @@ void *GetStringFrom2(char *s1, char *s2, char *res) {
         }
     }
     *(--WritePtr) = '\0';
+}
+
+// task 10
+
+int getWordReverse(char *rbegin, char *rend, WordDescriptor *word) {
+    word->end = findNonSpaceReverse(rbegin, rend);
+
+    if (word->end == rend)
+        return 0;
+
+    word->begin = findSpaceReverse(rbegin- 1, rend);
+
+    return 1;
+}
+
+void getStringRevers(char *s) {
+    WordDescriptor word;
+
+    char *WritePtr = s;
+    char *rend = stringBuffer;
+    char *rbegin = copy(s, getEndOfString(s) + 1, stringBuffer);
+
+
+    while (getWordReverse(rbegin, rend, &word)) {
+        WritePtr = copy(word.begin, word.end, WritePtr);
+        rbegin = word.begin;
+        *WritePtr++ = ' ';
+    }
+    *(--WritePtr) = '\0';
+    replace(s, "  ", " ");
 }
