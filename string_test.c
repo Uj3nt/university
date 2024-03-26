@@ -351,10 +351,29 @@ void test_getStringRevers() {
     ASSERT_STRING(" ddd ccc bbb aaa", s1);
 }
 
+void testAll_getWordBeforeFirstWordWithA() {
+    WordDescriptor word;
+    char s1[] = "";
+    assert(
+            getWordBeforeFirstWordWithA(s1, &word)
+            == EMPTY_STRING
+    );
+    char s2[] = "ABC";
+    assert(getWordBeforeFirstWordWithA(s2, &word) == FIRST_WORD_WITH_A);
 
+    char s3[] = "BC A";
+    assert(
+            getWordBeforeFirstWordWithA(s3, &word)
+            == WORD_FOUND
+    );
+    char s4[] = "B Q WE YR OW IUWR";
+    assert(getWordBeforeFirstWordWithA(s4, &word) == NOT_FOUND_A_WORD_WITH_A);
+
+}
 
 int main() {
-    test_getStringRevers();
+    testAll_getWordBeforeFirstWordWithA();
+//    test_getStringRevers();
 //    test_GetStringFrom2();
 //    test_GetCountPalindromesInString();
 //    test_isSortedWords();

@@ -244,7 +244,7 @@ int isSortWords(char *s) {
     WordDescriptor w1;
     WordDescriptor w2;
 
-    while (getWord(s,&w1)) {
+    while (getWord(s, &w1)) {
         if (getWord(w1.end, &w2)) {
             if (*w1.begin > *w2.begin) {
                 return 0;
@@ -273,8 +273,8 @@ void getBagOfWords(BagOfWords *bag, char *s) {
 
 int isPakindromeWorld(WordDescriptor *word) {
     int word_len = word->end - word->begin;
-    for (int i = 0; i < word_len/2; ++i) {
-        if ( *(word->begin + i) != *(word->end - i - 1) ) {
+    for (int i = 0; i < word_len / 2; ++i) {
+        if (*(word->begin + i) != *(word->end - i - 1)) {
             return 0;
         }
     }
@@ -288,13 +288,13 @@ int GetCountPalindromesInString(char *s) {
     char *BeginWord = s;
     int counter = 0;
 
-    while (getWord(BeginWord,&word)) {
+    while (getWord(BeginWord, &word)) {
         if (isPakindromeWorld(&word)) {
             counter++;
         }
         BeginWord = word.end;
     }
-    return  counter;
+    return counter;
 }
 
 // task 9
@@ -303,9 +303,10 @@ void *GetStringFrom2(char *s1, char *s2, char *res) {
     WordDescriptor word1, word2;
     int isW1Found, isW2Found;
     char *beginSearch1 = s1, *beginSearch2 = s2;
-    char* WritePtr = res;
+    char *WritePtr = res;
 
-    while ((isW1Found = getWord(beginSearch1, &word1)), (isW2Found = getWord(beginSearch2, &word2)), isW1Found || isW2Found) {
+    while ((isW1Found = getWord(beginSearch1, &word1)), (isW2Found = getWord(beginSearch2, &word2)), isW1Found ||
+                                                                                                     isW2Found) {
         if (isW1Found) {
             WritePtr = copy(word1.begin, word1.end, WritePtr);
             *WritePtr++ = ' ';
@@ -329,7 +330,7 @@ int getWordReverse(char *rbegin, char *rend, WordDescriptor *word) {
     if (word->end == rend)
         return 0;
 
-    word->begin = findSpaceReverse(rbegin- 1, rend);
+    word->begin = findSpaceReverse(rbegin - 1, rend);
 
     return 1;
 }
@@ -349,4 +350,46 @@ void getStringRevers(char *s) {
     }
     *(--WritePtr) = '\0';
     replace(s, "  ", " ");
+}
+
+
+// task 11
+
+typedef enum WordBeforeFirstWordWithAReturnCode {
+    FIRST_WORD_WITH_A,
+    NOT_FOUND_A_WORD_WITH_A,
+    WORD_FOUND,
+    EMPTY_STRING
+} WordBeforeFirstWordWithAReturnCode;
+
+
+int SymbolIn(char *begin, char *end, int ch) {
+    while (begin != end && (toupper(*begin)) != toupper(ch))
+        begin++;
+    return begin != end;
+}
+
+
+WordBeforeFirstWordWithAReturnCode getWordBeforeFirstWordWithA(char *s, WordDescriptor *w) {
+    int isWordInString = getWord(s, w) == 1;
+
+    if (isWordInString && !SymbolIn(w->begin, w->end, 'a')) {
+        WordDescriptor copy_w;
+
+        if (getWord(w->end, &copy_w) == 1) {
+            if (SymbolIn(copy_w.begin, copy_w.end, 'a')) {
+                return WORD_FOUND;
+            } else {
+                return getWordBeforeFirstWordWithA(w->end, w);
+            }
+
+        } else {
+            return NOT_FOUND_A_WORD_WITH_A;
+        }
+
+    } else if (isWordInString) {
+        return FIRST_WORD_WITH_A;
+    } else {
+        return EMPTY_STRING;
+    }
 }

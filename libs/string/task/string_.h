@@ -6,6 +6,7 @@
 #include <ctype.h>
 #include <memory.h>
 
+
 char stringBuffer[MAX_STRING_SIZE + 1];
 
 // Возвращает количество символов в строке
