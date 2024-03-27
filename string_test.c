@@ -371,8 +371,19 @@ void testAll_getWordBeforeFirstWordWithA() {
 
 }
 
+
+void test_lastWordInFirstStringInSecondString() {
+    char s1[] = "aaa vvv bbb aab";
+    char s2[] = "aaa aaa vvv aaa";
+    char res[MAX_STRING_SIZE];
+    WordDescriptor word = lastWordInFirstStringInSecondString(s1,s2);
+    wordDescriptorToString(word, res);
+    ASSERT_STRING(res, "vvv");
+}
+
 int main() {
-    testAll_getWordBeforeFirstWordWithA();
+    test_lastWordInFirstStringInSecondString();
+//    testAll_getWordBeforeFirstWordWithA();
 //    test_getStringRevers();
 //    test_GetStringFrom2();
 //    test_GetCountPalindromesInString();

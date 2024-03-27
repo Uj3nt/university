@@ -10,6 +10,8 @@ typedef struct BagOfWords {
     size_t size;
 } BagOfWords;
 
+BagOfWords _bag;
+BagOfWords _bag2;
 
 size_t strlen_v1(char *s) {
     int i = 0;
@@ -264,7 +266,8 @@ void getBagOfWords(BagOfWords *bag, char *s) {
     for (int i = 0; getWord(readPtr, &word); i++) {
         bag->words[i].begin = word.begin;
         bag->words[i].end = word.end;
-        bag->size = i;
+        bag->size = i + 1;
+        readPtr = word.end;
     }
 
 }
@@ -392,4 +395,36 @@ WordBeforeFirstWordWithAReturnCode getWordBeforeFirstWordWithA(char *s, WordDesc
     } else {
         return EMPTY_STRING;
     }
+}
+
+// task 12
+void wordDescriptorToString(WordDescriptor word,char *string) {
+    char *end = copy(word.begin, word.end, string);
+    *end = '\0';
+}
+
+
+WordDescriptor lastWordInFirstStringInSecondString(char *s1, char *s2) {
+    getBagOfWords(&_bag,s1 );
+    getBagOfWords(&_bag2,s2 );
+
+    for (int i = 0; i < _bag.size; ++i) {
+        WordDescriptor word1 = _bag.words[_bag.size - i - 1];
+
+
+        for (int j = 0; j < _bag2.size; ++j) {
+            WordDescriptor word2 = _bag2.words[j];
+
+
+            if (!strncmp(word1.begin, word2.begin,word1.end - word1.begin )) {
+                return _bag.words[_bag.size - i - 1];
+            }
+        }
+    }
+
+    WordDescriptor res;
+    char *res_s = "EMPTY";
+    getWord(res_s, &res);
+    return res;
+
 }
