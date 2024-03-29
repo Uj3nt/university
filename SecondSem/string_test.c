@@ -397,8 +397,16 @@ void test_checkWordsInStringHaveCommonLetters() {
     assert(res == 0);
 }
 
+void test_GetStringWithoutLastWord() {
+    char s[] = " ab a b a b a b";
+    char *res[100];
+    GetStringWithoutLastWord(s, res);
+    ASSERT_STRING("ab a a a", res);
+}
+
 void string_ex_tests() {
- test_checkWordsInStringHaveCommonLetters();
+    test_GetStringWithoutLastWord();
+//    test_checkWordsInStringHaveCommonLetters();
 //    test_UniqueWordsInString();
 //    test_lastWordInFirstStringInSecondString();
 //    testAll_getWordBeforeFirstWordWithA();
