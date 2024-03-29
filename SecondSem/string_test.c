@@ -387,9 +387,19 @@ void test_UniqueWordsInString() {
     assert(res == 0);
 }
 
+void test_checkWordsInStringHaveCommonLetters() {
+    char s[] = "take kate";
+    int res = checkWordsInStringHaveCommonLetters(s);
+    assert(res == 1);
+
+    char f[] = "take sate";
+    res = checkWordsInStringHaveCommonLetters(f);
+    assert(res == 0);
+}
 
 void string_ex_tests() {
-    test_UniqueWordsInString();
+ test_checkWordsInStringHaveCommonLetters();
+//    test_UniqueWordsInString();
 //    test_lastWordInFirstStringInSecondString();
 //    testAll_getWordBeforeFirstWordWithA();
 //    test_getStringRevers();
@@ -404,6 +414,6 @@ void string_ex_tests() {
 }
 
 int main() {
-
+    string_ex_tests();
 //    string_tests();
 }

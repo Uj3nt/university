@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <memory.h>
+#include <stdlib.h>
 
 
 char stringBuffer[MAX_STRING_SIZE + 1];
