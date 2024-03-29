@@ -402,8 +402,8 @@ WordBeforeFirstWordWithAReturnCode getWordBeforeFirstWordWithA(char *s, WordDesc
 }
 
 // task 12
-void wordDescriptorToString(WordDescriptor word,char *string) {
-    char *end = copy(word.begin, word.end, string);
+void wordDescriptorToString(WordDescriptor *word,char *string) {
+    char *end = copy(word->begin, word->end, string);
     *end = '\0';
 }
 
@@ -496,3 +496,33 @@ void GetStringWithoutLastWord(char *s,char *res) {
     }
     *(--writePtr) = '\0';
 }
+
+// task 16
+
+int ThisWordInBag(BagOfWords bag, WordDescriptor word) {
+    for (int i = 0; i < bag.size; i++) {
+        if (strncmp(word.begin, bag.words[i].begin, getSizeWord(word)) == 0) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+WordDescriptor GetWordBeforeUnionWord(char *s1, char *s2) {
+    getBagOfWords(&_bag, s1);
+    getBagOfWords(&_bag2, s2);
+
+    for (int i = 0; i < _bag.size; ++i) {
+        if (ThisWordInBag(_bag2, _bag.words[i])) {
+            if (i != 0) {
+                return  _bag.words[i - 1];
+            } else {
+                continue;
+            }
+        }
+    }
+    WordDescriptor error_word = {NULL, NULL};
+    return error_word;
+}
+
+

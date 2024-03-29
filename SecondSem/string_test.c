@@ -377,7 +377,7 @@ void test_lastWordInFirstStringInSecondString() {
     char s2[] = "aaa aaa vvv aaa";
     char res[MAX_STRING_SIZE];
     WordDescriptor word = lastWordInFirstStringInSecondString(s1,s2);
-    wordDescriptorToString(word, res);
+    wordDescriptorToString(&word, res);
     ASSERT_STRING(res, "vvv");
 }
 
@@ -404,8 +404,19 @@ void test_GetStringWithoutLastWord() {
     ASSERT_STRING("ab a a a", res);
 }
 
+void test_GetWordBeforeUnionWord() {
+    char s1[] = "aa bb dd";
+    char s2[] = "xx bb ff";
+
+    WordDescriptor res_word = GetWordBeforeUnionWord(s1, s2);
+    char *yres[MAX_STRING_SIZE];
+    wordDescriptorToString(&res_word, yres);
+    ASSERT_STRING("aa", yres);
+}
+
 void string_ex_tests() {
-    test_GetStringWithoutLastWord();
+    test_GetWordBeforeUnionWord();
+//    test_GetStringWithoutLastWord();
 //    test_checkWordsInStringHaveCommonLetters();
 //    test_UniqueWordsInString();
 //    test_lastWordInFirstStringInSecondString();
