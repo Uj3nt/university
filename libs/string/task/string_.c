@@ -428,3 +428,23 @@ WordDescriptor lastWordInFirstStringInSecondString(char *s1, char *s2) {
     return res;
 
 }
+
+// task 13
+
+int UniqueWordsInString(char *s) {
+    BagOfWords bag;
+    getBagOfWords(&bag, s);
+
+    for (int i = 0; i < bag.size; ++i) {
+        for (int j = i + 1; j < bag.size; ++j) {
+            int size_word_1 = bag.words[i].end - bag.words[i].begin;
+            int size_word_2 = bag.words[j].end - bag.words[j].begin;
+            int max_size_words = size_word_1 > size_word_2 ? size_word_1 : size_word_2;
+
+            if (!strncmp(bag.words[i].begin, bag.words[j].begin, max_size_words)) {
+                return 0;
+            }
+        }
+    }
+    return 1;
+}

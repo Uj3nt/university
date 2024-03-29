@@ -381,8 +381,15 @@ void test_lastWordInFirstStringInSecondString() {
     ASSERT_STRING(res, "vvv");
 }
 
+void test_UniqueWordsInString() {
+    char s[] = "ddd bbb fff fff";
+    int res = UniqueWordsInString(s);
+    assert(res == 0);
+}
+
 int main() {
-    test_lastWordInFirstStringInSecondString();
+    test_UniqueWordsInString();
+//    test_lastWordInFirstStringInSecondString();
 //    testAll_getWordBeforeFirstWordWithA();
 //    test_getStringRevers();
 //    test_GetStringFrom2();
