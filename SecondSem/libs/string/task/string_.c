@@ -543,8 +543,35 @@ void DeletePalindromeInString(char *s) {
     *(--ptrWrite) = '\0';
 }
 
+// 18 task
 
+void addWordToLessString(char *s1, char *s2) {
+    getBagOfWords(&_bag, s1);
+    getBagOfWords(&_bag2, s2);
+    char *ptrWrite;
+    int IsString1More = _bag.size > _bag2.size ? 1 : 0;
+    size_t difSize = IsString1More ? _bag.size - _bag2.size : _bag2.size - _bag.size;
 
+    if (IsString1More) {
+        ptrWrite = _bag2.words[_bag2.size - 1].end;
+
+        for (int i = 0; i < difSize; ++i) {
+            *(ptrWrite++) = ' ';
+            ptrWrite = copy(_bag.words[_bag2.size + i ].begin, _bag.words[_bag2.size + i].end, ptrWrite);
+        }
+
+    } else {
+        ptrWrite = _bag.words[_bag.size - 1].end;
+
+        for (int i = 0; i < difSize; ++i) {
+            *(ptrWrite++) = ' ';
+            ptrWrite = copy(_bag2.words[_bag.size + i].begin, _bag2.words[_bag.size + i].end, ptrWrite);
+        }
+    }
+
+    *ptrWrite = '\0';
+
+}
 
 
 

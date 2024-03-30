@@ -420,8 +420,16 @@ void test_DeletePalindromeInString() {
     ASSERT_STRING("cloud nine", s);
 }
 
+void test_addWordToLessString() {
+    char s1[] = "a b x d";
+    char s2[] = "a b c d f e";
+    addWordToLessString(s1, s2);
+    ASSERT_STRING(s1, "a b x d f e");
+}
+
 void string_ex_tests() {
-    test_DeletePalindromeInString();
+    test_addWordToLessString();
+//    test_DeletePalindromeInString();
 //    test_GetWordBeforeUnionWord();
 //    test_GetStringWithoutLastWord();
 //    test_checkWordsInStringHaveCommonLetters();
