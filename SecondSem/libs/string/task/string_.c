@@ -515,7 +515,7 @@ WordDescriptor GetWordBeforeUnionWord(char *s1, char *s2) {
     for (int i = 0; i < _bag.size; ++i) {
         if (ThisWordInBag(_bag2, _bag.words[i])) {
             if (i != 0) {
-                return  _bag.words[i - 1];
+                return  _bag.words[i  - 1];
             } else {
                 continue;
             }
@@ -524,5 +524,36 @@ WordDescriptor GetWordBeforeUnionWord(char *s1, char *s2) {
     WordDescriptor error_word = {NULL, NULL};
     return error_word;
 }
+
+// task 17
+
+void DeletePalindromeInString(char *s) {
+    char *ptrWrite = s;
+    char *ptrRead = stringBuffer;
+    copy(s, getEndOfString(s) + 1, ptrRead);
+
+    getBagOfWords(&_bag, ptrRead);
+
+    for (int i = 0; i < _bag.size; ++i) {
+        if (!isPakindromeWorld(&_bag.words[i])) {
+            ptrWrite = copy(_bag.words[i].begin, _bag.words[i].end, ptrWrite);
+            *(ptrWrite++) = ' ';
+        }
+    }
+    *(--ptrWrite) = '\0';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

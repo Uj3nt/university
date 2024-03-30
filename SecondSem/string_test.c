@@ -414,8 +414,15 @@ void test_GetWordBeforeUnionWord() {
     ASSERT_STRING("aa", yres);
 }
 
+void test_DeletePalindromeInString() {
+    char s[] = "mem cloud sms nine radar";
+    DeletePalindromeInString(s);
+    ASSERT_STRING("cloud nine", s);
+}
+
 void string_ex_tests() {
-    test_GetWordBeforeUnionWord();
+    test_DeletePalindromeInString();
+//    test_GetWordBeforeUnionWord();
 //    test_GetStringWithoutLastWord();
 //    test_checkWordsInStringHaveCommonLetters();
 //    test_UniqueWordsInString();
