@@ -6,9 +6,11 @@
 #include <ctype.h>
 #include <memory.h>
 #include <stdlib.h>
+#include "../../data_struct/bitset/bitset.c"
 
 
 char stringBuffer[MAX_STRING_SIZE + 1];
+char stringBuffer2[MAX_STRING_SIZE + 1];
 
 // Возвращает количество символов в строке
 size_t strlen_v1(char *s) ;

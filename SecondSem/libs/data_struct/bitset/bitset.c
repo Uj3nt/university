@@ -8,7 +8,7 @@
 #include <stdint.h>
 
 typedef struct bitset {
-    uint32_t values; // множество
+    int values; // множество
     uint32_t maxValue; // максимальный элемент универсума
 } bitset;
 
@@ -36,7 +36,7 @@ bool bitset_isSubset(bitset subset, bitset set) {
 }
 
 void bitset_insert(bitset *set, unsigned int value) {
-    set->values | (1 << value);
+    set->values = set->values  | (1 << value);
 }
 
 void bitset_deleteElement(bitset *set, unsigned int value) {

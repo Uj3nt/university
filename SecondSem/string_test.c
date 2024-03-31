@@ -309,11 +309,11 @@ void test_digitsReplaceSpase() {
 }
 
 void test_replace() {
-    char s[] = "zxc";
+    char s[] = "zxc zxc";
     char *w1 = "zxc";
     char *w2 = "bubuntu";
     replace(s, w1, w2);
-    ASSERT_STRING("bubuntu", s);
+    ASSERT_STRING("bubuntu bubuntu", s);
 }
 
 void test_isSortedWords() {
@@ -427,27 +427,35 @@ void test_addWordToLessString() {
     ASSERT_STRING(s1, "a b x d f e");
 }
 
+void test_allSymbolsWordInString() {
+    char *s = "ura ya zakonchil etu labu spasibo";
+    char *word = "poluchilos";
+    int res = allSymbolsWordInString(s, word) ;
+    assert(res == 1);
+}
+
 void string_ex_tests() {
+    test_allSymbolsWordInString();
     test_addWordToLessString();
-//    test_DeletePalindromeInString();
-//    test_GetWordBeforeUnionWord();
-//    test_GetStringWithoutLastWord();
-//    test_checkWordsInStringHaveCommonLetters();
-//    test_UniqueWordsInString();
-//    test_lastWordInFirstStringInSecondString();
-//    testAll_getWordBeforeFirstWordWithA();
-//    test_getStringRevers();
-//    test_GetStringFrom2();
-//    test_GetCountPalindromesInString();
-//    test_isSortedWords();
-//    test_replace();
-//    test_digitToStart();
-//    test_digitsReplaceSpase();
-//    test_deleteExtraSpase();
-//    test_assertString();
+    test_DeletePalindromeInString();
+    test_GetWordBeforeUnionWord();
+    test_GetStringWithoutLastWord();
+    test_checkWordsInStringHaveCommonLetters();
+    test_UniqueWordsInString();
+    test_lastWordInFirstStringInSecondString();
+    testAll_getWordBeforeFirstWordWithA();
+    test_getStringRevers();
+    test_GetStringFrom2();
+    test_GetCountPalindromesInString();
+    test_isSortedWords();
+    test_replace();
+    test_digitToStart();
+    test_digitsReplaceSpase();
+    test_deleteExtraSpase();
+    test_assertString();
 }
 
 int main() {
     string_ex_tests();
-//    string_tests();
+    string_tests();
 }

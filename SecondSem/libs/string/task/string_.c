@@ -1,5 +1,7 @@
 #include "string_.h"
 
+#define COUNT_LETTERS 26
+#define DIFFERENCE_CHAR 65
 typedef struct WordDescriptor {
     char *begin; // позиция начала слова
     char *end; // позиция первого символа, после последнего символа
@@ -168,6 +170,7 @@ int getWord(char *beginSearch, WordDescriptor *word) {
 
 void digitToStartWord(WordDescriptor word) {
     char *endStringBuffer = copy(word.begin, word.end, stringBuffer);
+    *endStringBuffer = '\0';
     char *recPosition = copyIf(stringBuffer, endStringBuffer, word.begin, isdigit);
     copyIf(stringBuffer, endStringBuffer, recPosition, isalpha);
 }
@@ -224,9 +227,11 @@ void replace(char *source, char *w1, char *w2) {
         readPtr = source;
         recPtr = source;
     } else {
-        copy(source, getEndOfString(source) + 1, stringBuffer);
+        char *endW1copy = copy(source, getEndOfString(source) + 1, stringBuffer);
+        *endW1copy = '\0';
         readPtr = stringBuffer;
         recPtr = source;
+
     }
 
     while (*readPtr != '\0') {
@@ -546,9 +551,11 @@ void DeletePalindromeInString(char *s) {
 // 18 task
 
 void addWordToLessString(char *s1, char *s2) {
+    char *ptrWrite;
+
     getBagOfWords(&_bag, s1);
     getBagOfWords(&_bag2, s2);
-    char *ptrWrite;
+
     int IsString1More = _bag.size > _bag2.size ? 1 : 0;
     size_t difSize = IsString1More ? _bag.size - _bag2.size : _bag2.size - _bag.size;
 
@@ -573,10 +580,30 @@ void addWordToLessString(char *s1, char *s2) {
 
 }
 
+// task 19
 
+int allSymbolsWordInString(char *s, char *word) {
+    bitset letters_s = bitset_create(COUNT_LETTERS);
+    bitset letters_word = bitset_create(COUNT_LETTERS);
 
+    for (int i = 0; i < strlen_(s); ++i) {
+        char symbol = toupper(s[i]);
+        if (isalpha(symbol)) {
+            bitset_insert(&letters_s, (symbol - DIFFERENCE_CHAR));
+        }
+    }
 
+    for (int i = 0; i < strlen_(word); ++i) {
+        char symbol = toupper(word[i]);
+        if (isalpha(symbol)) {
+            bitset_insert(&letters_word, (int) (symbol - DIFFERENCE_CHAR));
+        }
+    }
 
+    bitset res = bitset_intersection(letters_s, letters_word);
+
+    return bitset_isEqual(res, letters_word);
+}
 
 
 
