@@ -1,3 +1,4 @@
 add_subdirectory(algorithms)
+add_subdirectory(file_library)
 add_subdirectory(data_struct)
 add_subdirectory(string)

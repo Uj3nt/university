@@ -108,6 +108,9 @@
 			"path" : "libs/algorithms/CMakeLists.txt"
 		},
 		{
+			"path" : "libs/file_library/CMakeLists.txt"
+		},
+		{
 			"path" : "libs/data_struct/CMakeLists.txt"
 		},
 		{

@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "string_test.exe"
+			"path" : "gg.exe"
 		},
 		{
-			"path" : "string_test.pdb"
+			"path" : "gg.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -27,7 +27,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 18,
+				"line" : 15,
 				"parent" : 0
 			}
 		]
@@ -56,7 +56,7 @@
 			]
 		}
 	],
-	"id" : "string_test::@6890427a1f51a3e7e1df",
+	"id" : "gg::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -76,8 +76,8 @@
 		],
 		"language" : "C"
 	},
-	"name" : "string_test",
-	"nameOnDisk" : "string_test.exe",
+	"name" : "gg",
+	"nameOnDisk" : "gg.exe",
 	"paths" : 
 	{
 		"build" : ".",
@@ -98,7 +98,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "string_test.c",
+			"path" : "test.c",
 			"sourceGroupIndex" : 0
 		}
 	],

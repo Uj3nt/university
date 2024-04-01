@@ -21,10 +21,11 @@
 					[
 						0,
 						3,
-						4,
 						5,
+						6,
 						7,
-						8
+						9,
+						10
 					]
 				},
 				{
@@ -33,7 +34,8 @@
 					[
 						2,
 						3,
-						4
+						4,
+						5
 					],
 					"jsonFile" : "directory-libs-Debug-dd7a5ca29a7a50124f40.json",
 					"minimumCMakeVersion" : 
@@ -57,6 +59,21 @@
 					"targetIndexes" : 
 					[
 						1
+					]
+				},
+				{
+					"build" : "libs/file_library",
+					"jsonFile" : "directory-libs.file_library-Debug-01671005e029a89bbfa7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "libs/file_library",
+					"targetIndexes" : 
+					[
+						4
 					]
 				},
 				{
@@ -86,7 +103,7 @@
 					"source" : "libs/string",
 					"targetIndexes" : 
 					[
-						6
+						8
 					]
 				}
 			],
@@ -100,7 +117,8 @@
 						1,
 						2,
 						3,
-						4
+						4,
+						5
 					],
 					"name" : "Programmig_SecondSem",
 					"targetIndexes" : 
@@ -113,7 +131,9 @@
 						5,
 						6,
 						7,
-						8
+						8,
+						9,
+						10
 					]
 				}
 			],
@@ -122,7 +142,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Programmig_SecondSem::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Programmig_SecondSem-Debug-fc28c913868d2cd88c4c.json",
+					"jsonFile" : "target-Programmig_SecondSem-Debug-0f433c20b54c92fec655.json",
 					"name" : "Programmig_SecondSem",
 					"projectIndex" : 0
 				},
@@ -134,7 +154,7 @@
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 3,
+					"directoryIndex" : 4,
 					"id" : "data_strut::@1dcd1a09ba689f0595e2",
 					"jsonFile" : "target-data_strut-Debug-a5d227c2261c80876e21.json",
 					"name" : "data_strut",
@@ -142,27 +162,41 @@
 				},
 				{
 					"directoryIndex" : 0,
+					"id" : "file_ex::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-file_ex-Debug-abc1c5107ff7ad86836a.json",
+					"name" : "file_ex",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "file_library::@ad7968fa409976479b5f",
+					"jsonFile" : "target-file_library-Debug-048a391b7411fb7e9bec.json",
+					"name" : "file_library",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "gg::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-gg-Debug-11a3191a7effb81a2a22.json",
+					"jsonFile" : "target-gg-Debug-37512f98a0a3b2e8082f.json",
 					"name" : "gg",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "matrix_ex_tests::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-matrix_ex_tests-Debug-46c4297fad7db4983a67.json",
+					"jsonFile" : "target-matrix_ex_tests-Debug-049a16fd7f1a79952149.json",
 					"name" : "matrix_ex_tests",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "matrix_test::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-matrix_test-Debug-20dbbce62d3c8f2c0516.json",
+					"jsonFile" : "target-matrix_test-Debug-ad799721df1a852c41b0.json",
 					"name" : "matrix_test",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 4,
+					"directoryIndex" : 5,
 					"id" : "string::@3f2b1fb9d1440f41f43e",
 					"jsonFile" : "target-string-Debug-49d19201e102a2ee313a.json",
 					"name" : "string",
@@ -171,14 +205,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "string_test::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-string_test-Debug-1e7db574d4765b128bd5.json",
+					"jsonFile" : "target-string_test-Debug-06a8fac2b698b052a9bd.json",
 					"name" : "string_test",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "vector_test::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-vector_test-Debug-df2ad5d4868a17f5fbf8.json",
+					"jsonFile" : "target-vector_test-Debug-adf8488de15c215f8d40.json",
 					"name" : "vector_test",
 					"projectIndex" : 0
 				}
