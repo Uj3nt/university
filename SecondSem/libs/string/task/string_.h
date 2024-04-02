@@ -1,11 +1,12 @@
 #ifndef INC_STRING__H
 #define INC_STRING__H
-#define MAX_STRING_SIZE 100
+#define MAX_STRING_SIZE 200
 #define MAX_N_WORDS_IN_STRING 20
 #include <stdio.h>
 #include <ctype.h>
 #include <memory.h>
 #include <stdlib.h>
+#include <string.h>
 #include "../../data_struct/bitset/bitset.c"
 
 
