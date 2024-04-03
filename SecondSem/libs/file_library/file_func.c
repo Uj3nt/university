@@ -77,3 +77,22 @@ char *getWayByTasks(char *filename) {
     return str_replace(way, __FILE_NAME__, sub_way);
 }
 
+void GenerateRandomFloatNumbers(FILE *file, int count) {
+    for (int i = 0; i < count; i++) {
+        double number = ((double)rand() / RAND_MAX) * 1000.0;
+        fprintf(file, "%lf\n", number);
+    }
+}
+
+void ReadFloatNumbers(FILE *file, double numbers[], int *count) {
+    *count = 0;
+    while (fscanf(file, "%lf", &numbers[*count]) == 1) {
+        (*count)++;
+    }
+}
+
+void WriteFloatNumbers(FILE *file, double numbers[], int count) {
+    for (int i = 0; i < count; i++) {
+        fprintf(file, "%.2f\n", numbers[i]);
+    }
+}
