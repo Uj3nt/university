@@ -26,6 +26,8 @@ void task1() {
 }
 
 void task2() {
+    srand(time(NULL));
+
     int count_num = 10;
     char *way_input = getWayByTasks("task2input.txt");
     FILE *file_input = fopen(way_input, "w");
@@ -43,8 +45,29 @@ void task2() {
     fclose(file_output);
 }
 
+void task3() {
+    srand(time(NULL));
+
+    char *way_input = getWayByTasks("task3.txt");
+    FILE *file = fopen(way_input, "w");
+    WriteGenerateExpression(file);
+    fclose(file);
+
+    fopen(way_input, "r");
+    int res =  CalculateExpressionFromFile(file);
+    fclose(file);
+
+    fopen(way_input, "a");
+    fprintf(file," = %d", res);
+    fclose(file);
+
+}
+
+
+
 
 int main() {
     //task1();
-    task2();
+    //task2();
+    task3();
 }
