@@ -63,11 +63,15 @@ void task3() {
 
 }
 
-
+void task4() {
+    generateRandomWords("task4input.txt");
+    printCorrectWords("task4input.txt", "task4output.txt", "a");
+}
 
 
 int main() {
     //task1();
     //task2();
-    task3();
+    //task3();
+    task4();
 }

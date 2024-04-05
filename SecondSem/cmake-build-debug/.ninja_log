@@ -26,3 +26,9 @@
 518	555	7337882619862030	libs/string/libstring.a	9c3a0777169bc635
 3	229	7340317027802149	CMakeFiles/file_ex.dir/libs/file_library/tasks/func_ex.c.obj	252099abaaae3f3a
 229	299	7340317028492338	file_ex.exe	dc6dc2b8af324c14
+2	228	7340445902133522	CMakeFiles/file_ex.dir/libs/file_library/tasks/func_ex.c.obj	252099abaaae3f3a
+228	312	7340445902943707	file_ex.exe	dc6dc2b8af324c14
+2	1011	7340997482263480	CMakeFiles/file_ex.dir/libs/file_library/tasks/func_ex.c.obj	252099abaaae3f3a
+1011	1566	7340997487659756	file_ex.exe	dc6dc2b8af324c14
+2	221	7340998374934944	CMakeFiles/file_ex.dir/libs/file_library/tasks/func_ex.c.obj	252099abaaae3f3a
+221	292	7340998375625099	file_ex.exe	dc6dc2b8af324c14
