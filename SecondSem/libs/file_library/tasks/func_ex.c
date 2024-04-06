@@ -68,10 +68,15 @@ void task4() {
     printCorrectWords("task4input.txt", "task4output.txt", "a");
 }
 
+void task5() {
+    generateRandomStrings("task5input.txt");
+    printMaxLenWordsInString("task5input.txt", "task5output.txt");
+}
 
 int main() {
     //task1();
     //task2();
     //task3();
-    task4();
+    //task4();
+    task5();
 }
