@@ -13,6 +13,11 @@ typedef struct Polinomial {
     int k;
 } Polinomial;
 
+typedef struct Sportsman {
+    char *name;
+    char *surname;
+    int res;
+} Sportsman;
 
 void WriteMatricesBinaryFile(char *file_name, FILE *file, matrix *data, int count_matrices) {
     char *c;
@@ -481,7 +486,81 @@ void transpocseMatrixIfNotSymetricFile(char *file_name, FILE *file, int count_ma
     free(ptr);
 }
 
+ Sportsman *getMemForSportsmensArray(int nSportsmens) {
+    Sportsman *array_sportsmens = (Sportsman *) malloc(nSportsmens * sizeof(Sportsman));
+    return array_sportsmens;
+}
+
+void genereteSportsmens (Sportsman * array_sportsmens, int count_sportsmens) {
+    srand(time(NULL));
+    char *names[10] = { "Biba", "Boba", "Linus", "Ryan", "Ryzen", "Bubuntu", "Andrusha", "Women", "Gojo", "Roronoa"};
+    char *surnames[10] = { "Otcovich", "Kachkovich", "Kalich", "Torvalds", "ByeByevich", "Archich", "Applich", "Ymich", "Potnich", "Bigsmokevich"};
+
+    for (int i = 0; i < count_sportsmens; ++i) {
+        array_sportsmens[i].res = rand()%100 + 1;
+        array_sportsmens[i].name = names[rand()%10];
+        array_sportsmens[i].surname = surnames[rand()%10];
+    }
+}
+
+void writeSportsmensInFile(FILE *filename, Sportsman * array_sportsmens, int count_sportsmens) {
+    char *way = getWayByTasks(filename);
+    FILE* file = fopen(way, "wb");
+
+    char *c = (char *) array_sportsmens;
+
+    for (int i = 0; i < sizeof(Sportsman) * count_sportsmens; i++) {
+        putc(*c++, file);
+    }
+    fclose(file);
+}
+
+void outputSportsmensFromFile(char *filename, int nSportsmens) {
+    int counter;
+    Sportsman *array_sportsmens = getMemForSportsmensArray(nSportsmens);
+    char *c = (char *) array_sportsmens;
+
+    char *way = getWayByTasks(filename);
+    FILE *file = fopen(way, "rb");
+
+    while ((counter = getc(file)) != EOF) {
+        *c = counter;
+        c++;
+    }
+    fclose(file);
+
+    for (int i = 0; i < nSportsmens; ++i) {
+        printf("%s %s--->%d\n", array_sportsmens[i].name, array_sportsmens[i].surname, array_sportsmens[i].res);
+    }
+}
+
+int compareSportsmens(Sportsman a, Sportsman b) {
+    return b.res - a.res;
+}
+
+void getBestTeam(FILE *filename, int size_team, int count_sportsmens) {
+    int counter;
+    Sportsman *team = getMemForSportsmensArray(size_team);
+    Sportsman *array_sportsmens = getMemForSportsmensArray(count_sportsmens);
+
+    char *c = (char *) array_sportsmens;
+    char *way = getWayByTasks(filename);
+    FILE *file = fopen(way, "rb");
+
+    while ((counter = getc(file)) != EOF) {
+        *c = counter;
+        c++;
+    }
+    fclose(file);
 
 
+    qsort(array_sportsmens, count_sportsmens, sizeof(Sportsman),
+          (int (*)(const void *, const void *)) compareSportsmens);
 
+    for (int i = 0; i < size_team; ++i) {
+        team[i] = array_sportsmens[i];
+    }
 
+    writeSportsmensInFile(filename,team, size_team);
+    outputSportsmensFromFile(filename, size_team);
+}

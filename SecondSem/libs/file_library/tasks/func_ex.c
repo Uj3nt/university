@@ -115,6 +115,19 @@ void task8() {
     OutputMatricesInFile(way, &file, count_matrices);
 }
 
+void task9() {
+    int size_team = 5;
+    int count_sportsmens = 10;
+    Sportsman *array = getMemForSportsmensArray(count_sportsmens);
+    genereteSportsmens(array, count_sportsmens);
+    writeSportsmensInFile("task9.txt", array, count_sportsmens);
+    outputSportsmensFromFile("task9.txt", count_sportsmens);
+    printf("\n");
+    getBestTeam("task9.txt",size_team,count_sportsmens);
+
+}
+
+
 int main() {
     //task1();
     //task2();
@@ -123,5 +136,6 @@ int main() {
     //task5();
     //task6();
     //task7();
-    task8();
+    //task8();
+    task9();
 }
