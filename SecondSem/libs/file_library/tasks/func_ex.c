@@ -81,11 +81,22 @@ void task6() {
 
 }
 
+void task7() {
+    int size = 10;
+    int a[size];
+    generateArray(a, size);
+    outputArray_(a, size);
+    generateArrayBinaryFile("task7.txt", a, size);
+    sortArrayInFile("task7.txt", size);
+    outputArrayFromFile("task7.txt", size);
+}
+
 int main() {
     //task1();
     //task2();
     //task3();
     //task4();
     //task5();
-    task6();
+    //task6();
+    task7();
 }
