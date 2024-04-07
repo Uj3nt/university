@@ -91,6 +91,30 @@ void task7() {
     outputArrayFromFile("task7.txt", size);
 }
 
+void task8() {
+    char *name = "task8.txt";
+    char *way = getWayByTasks(name);
+    FILE file;
+    int count_matrices = 3;
+    int values[] = {1, 2, 3,
+                    2, 2, 3,
+                    3, 3, 3,
+
+                    5, 6, 7,
+                    5, 6, 7,
+                    5, 6, 7,
+
+                    8, 9, 0,
+                    8, 9, 0,
+                    8, 9, 0 };
+
+    matrix *matrix_array = createArrayOfMatrixFromArray(values, 3, 3, 3);
+
+    WriteMatricesBinaryFile(way, &file, matrix_array,count_matrices);
+    transpocseMatrixIfNotSymetricFile(way, &file, count_matrices);
+    OutputMatricesInFile(way, &file, count_matrices);
+}
+
 int main() {
     //task1();
     //task2();
@@ -98,5 +122,6 @@ int main() {
     //task4();
     //task5();
     //task6();
-    task7();
+    //task7();
+    task8();
 }

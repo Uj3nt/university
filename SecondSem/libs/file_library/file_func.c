@@ -457,6 +457,31 @@ void outputArrayFromFile(char *filename, int size) {
     outputArray_(a, size);
 }
 
+void transpocseMatrixIfNotSymetricFile(char *file_name, FILE *file, int count_matrices) {
+    int counter;
+    int size = sizeof(matrix) * count_matrices;
+    matrix *ptr = malloc(size);
+    file = fopen(file_name, "rb");
+    char *c = (char *) ptr;
+
+    while ((counter = getc(file)) != EOF) {
+        *c = counter;
+        c++;
+    }
+
+    for (int j = 0; j < count_matrices; ++j)
+        if(!isSymmetricMatrix(&ptr[j]))
+            transposeMatrix(&ptr[j]);
+
+    c = (char *) ptr;
+    for (int i = 0; i < sizeof(matrix) * count_matrices; i++)
+        putc(*c++, file);
+
+    fclose(file);
+    free(ptr);
+}
+
+
 
 
 
