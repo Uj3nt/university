@@ -2,12 +2,19 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <time.h>
+#include <math.h>
 #include "../string/task/string_.c"
 #include "../data_struct/matrix/matrix.c"
 #include "../data_struct/vector/vector.c"
 
 
-void WriteMatricesBinaryFile(char *file_name, FILE *file, matrix *data,int count_matrices) {
+typedef struct Polinomial {
+    int pow;
+    int k;
+} Polinomial;
+
+
+void WriteMatricesBinaryFile(char *file_name, FILE *file, matrix *data, int count_matrices) {
     char *c;
     file = fopen(file_name, "wb");
 
@@ -26,21 +33,21 @@ void SwapMatricesColsAndRowsFile(char *file_name, FILE *file, int count_matrices
     int size = sizeof(matrix) * count_matrices;
     matrix *ptr = malloc(size);
     file = fopen(file_name, "rb");
-        c = (char *) ptr;
+    c = (char *) ptr;
 
-        while ((counter = getc(file)) != EOF) {
-            *c = counter;
-            c++;
-        }
+    while ((counter = getc(file)) != EOF) {
+        *c = counter;
+        c++;
+    }
 
-        for (int j = 0; j < count_matrices; ++j) {
-            transposeMatrix(&ptr[j]);
-        }
+    for (int j = 0; j < count_matrices; ++j) {
+        transposeMatrix(&ptr[j]);
+    }
 
-        c = (char *) ptr;
-        for (int i = 0; i < sizeof(matrix) * count_matrices; i++) {
-            putc(*c++, file);
-        }
+    c = (char *) ptr;
+    for (int i = 0; i < sizeof(matrix) * count_matrices; i++) {
+        putc(*c++, file);
+    }
     fclose(file);
     free(ptr);
 }
@@ -80,7 +87,7 @@ char *getWayByTasks(char *filename) {
 
 void GenerateRandomFloatNumbers(FILE *file, int count) {
     for (int i = 0; i < count; i++) {
-        double number = ((double)rand() / RAND_MAX) * 1000.0;
+        double number = ((double) rand() / RAND_MAX) * 1000.0;
         fprintf(file, "%lf\n", number);
     }
 }
@@ -110,8 +117,8 @@ void WriteGenerateExpression(FILE *file) {
     int num2 = (int) rand() % 9 + 1;
     int num3 = (int) rand() % 9 + 1;
 
-    int operantor1  = generateRandomOperator();
-    int operantor2  = generateRandomOperator();
+    int operantor1 = generateRandomOperator();
+    int operantor2 = generateRandomOperator();
 
     if ((int) rand() % 2) {
         fprintf(file, "%d %c %d %c %d", num1, operantor1, num2, operantor2, num3);
@@ -147,7 +154,7 @@ int CalculateExpressionFromFile(FILE *file) {
         if (operantor1 == '/' || operantor1 == '*') {
             res = applyOperator(operantor2, applyOperator(operantor1, num1, num2), num3);
         } else {
-            res = applyOperator(operantor1,num1, applyOperator(operantor2, num2, num3));
+            res = applyOperator(operantor1, num1, applyOperator(operantor2, num2, num3));
         }
     }
 
@@ -155,9 +162,9 @@ int CalculateExpressionFromFile(FILE *file) {
 }
 
 
-void generateRandomWords(const char* filename) {
-    char* way = getWayByTasks(filename);
-    FILE* file = fopen(way, "w");
+void generateRandomWords(const char *filename) {
+    char *way = getWayByTasks(filename);
+    FILE *file = fopen(way, "w");
 
     char alphabet[] = "abcdefghijklmnopqrstuvwxyz";
     int alphabet_length = strlen(alphabet);
@@ -179,12 +186,12 @@ void generateRandomWords(const char* filename) {
     fclose(file);
 }
 
-void printCorrectWords(char* inputFilename, char* outputFilename, char* sequence) {
-    char* way_input = getWayByTasks(inputFilename);
-    FILE* file_input = fopen(way_input, "r");
+void printCorrectWords(char *inputFilename, char *outputFilename, char *sequence) {
+    char *way_input = getWayByTasks(inputFilename);
+    FILE *file_input = fopen(way_input, "r");
 
-    char* way_output = getWayByTasks(outputFilename);
-    FILE* file_output = fopen(way_output, "w");
+    char *way_output = getWayByTasks(outputFilename);
+    FILE *file_output = fopen(way_output, "w");
 
     char word[MAX_N_WORDS_IN_STRING];
 
@@ -199,9 +206,9 @@ void printCorrectWords(char* inputFilename, char* outputFilename, char* sequence
 }
 
 
-void generateRandomStrings(char* filename) {
-    char* way = getWayByTasks(filename);
-    FILE* file = fopen(way, "w");
+void generateRandomStrings(char *filename) {
+    char *way = getWayByTasks(filename);
+    FILE *file = fopen(way, "w");
 
     char alphabet[] = " abcdefg hijklm nopqrst uvwxyz ";
     int alphabet_length = strlen(alphabet);
@@ -223,12 +230,12 @@ void generateRandomStrings(char* filename) {
     fclose(file);
 }
 
-void printMaxLenWordsInString(char* inputFilename, char* outputFilename) {
-    char* way_input = getWayByTasks(inputFilename);
-    FILE* file_input = fopen(way_input, "r");
+void printMaxLenWordsInString(char *inputFilename, char *outputFilename) {
+    char *way_input = getWayByTasks(inputFilename);
+    FILE *file_input = fopen(way_input, "r");
 
-    char* way_output = getWayByTasks(outputFilename);
-    FILE* file_output = fopen(way_output, "w");
+    char *way_output = getWayByTasks(outputFilename);
+    FILE *file_output = fopen(way_output, "w");
 
     char s[50];
     while (fgets(s, 50, file_input)) {
@@ -249,6 +256,118 @@ void printMaxLenWordsInString(char* inputFilename, char* outputFilename) {
 
     fclose(file_input);
     fclose(file_output);
+}
+
+void freePolinomial(Polinomial **array, int nPalinom) {
+    for (int i = 0; i < nPalinom; i++) {
+        free(array[i]);
+    }
+    free(array);
+}
+
+
+int generateRandomSign() {
+    return rand() % 2 == 0 ? 1 : -1;
+}
+
+Polinomial **getMemPalinomeKiller(int nPalinomial, int nMember) {
+    Polinomial **array = (Polinomial **) malloc(nPalinomial * sizeof(Polinomial *));
+    for (int i = 0; i < nPalinomial; i++) {
+        array[i] = (Polinomial *) malloc(nMember * sizeof(Polinomial));
+    }
+    return (array);
+}
+
+void generatePolinomialArray(char *filename, int nPalinomial, int nMember) {
+    srand(time(NULL));
+    Polinomial **array = getMemPalinomeKiller(nPalinomial, nMember);
+
+    for (int i = 0; i < nPalinomial; ++i) {
+        for (int j = 0; j < nMember; ++j) {
+            array[i][j].pow = j;
+            array[i][j].k = generateRandomSign() * rand() % 9 + 1;
+        }
+    }
+
+    char *way = getWayByTasks(filename);
+    FILE *file = fopen(way, "wb");
+
+    char *c = (char *) array;
+    for (int i = 0; i < sizeof(Polinomial) * nPalinomial * nMember * 2; i++) {
+        putc(*c++, file);
+    }
+    fclose(file);
+    freePolinomial(array, nPalinomial);
+}
+
+
+
+void printCorrectPalinomial(char *filename, int x, int nPalinomial, int nMember) {
+    char *c;
+    int counter;
+    Polinomial **array = getMemPalinomeKiller(nPalinomial, nMember);
+    char *way = getWayByTasks(filename);
+    FILE *file = fopen(way, "rb");
+    c = (char *) array;
+
+    while ((counter = getc(file)) != EOF) {
+        *c = counter;
+        c++;
+    }
+    fclose(file);
+
+    for (int i = 0; i < nPalinomial; ++i) {
+        int res = 0;
+        for (int j = 0; j < nMember; ++j) {
+            res += (int) pow(x, array[i][j].pow) * array[i][j].k;
+
+        }
+        if (res == 0) {
+            for (int j = 0; j < nMember; ++j) {
+                array[i][j].pow = 0;
+                array[i][j].k = 0;
+            }
+        }
+    }
+
+    file = fopen(way, "wb");
+    c = (char *) array;
+    for (int i = 0; i < sizeof(Polinomial) * nPalinomial * nMember * 2; i++) {
+        putc(*c++, file);
+    }
+    fclose(file);
+    freePolinomial(array, nPalinomial);
+
+}
+
+void printPalinomialWithFile(char *filename, int nPalinomial, int nMember) {
+    char *c;
+    int counter;
+    Polinomial **array = getMemPalinomeKiller(nPalinomial, nMember);
+    char *way = getWayByTasks(filename);
+    FILE *file = fopen(way, "rb");
+    c = (char *) array;
+
+    while ((counter = getc(file)) != EOF) {
+        *c = counter;
+        c++;
+    }
+    fclose(file);
+
+    for (int i = 0; i < nPalinomial; ++i) {
+        int res = 0;
+        for (int j = 0; j < nMember; ++j) {
+            printf("(%dx^%d)",array[i][j].k, array[i][j].pow);
+            if (j != nMember - 1) {
+                printf(" + ");
+            }
+
+        }
+        printf("= 0\n");
+    }
+    printf("\n");
+
+    freePolinomial(array, nPalinomial);
 }
 
 

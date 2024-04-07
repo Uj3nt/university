@@ -73,10 +73,19 @@ void task5() {
     printMaxLenWordsInString("task5input.txt", "task5output.txt");
 }
 
+void task6() {
+    generatePolinomialArray("task6.txt", 10, 4);
+    printPalinomialWithFile("task6.txt", 10, 4);
+    printCorrectPalinomial("task6.txt", 1, 10, 4);
+    printPalinomialWithFile("task6.txt", 10, 4);
+
+}
+
 int main() {
     //task1();
     //task2();
     //task3();
     //task4();
-    task5();
+    //task5();
+    task6();
 }
