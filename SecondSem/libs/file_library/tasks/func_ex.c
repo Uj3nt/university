@@ -127,6 +127,20 @@ void task9() {
 
 }
 
+void task10() {
+    Product *array = getMemForProductArray(7);
+    generateProductArray(array);
+    outputProducts(array, 7);
+    printf("\n");
+
+    Product *arrayC = getMemForProductArray(7);
+    generateConsignment(arrayC);
+    outputProducts(arrayC,7);
+
+    printf("\n");
+    updateBaseProduct(array, arrayC, 7);
+    outputProducts(array, 7);
+}
 
 int main() {
     //task1();
@@ -137,5 +151,6 @@ int main() {
     //task6();
     //task7();
     //task8();
-    task9();
+    //task9();
+    task10();
 }
