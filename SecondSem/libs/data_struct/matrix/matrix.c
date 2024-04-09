@@ -3,9 +3,9 @@
 
 //размещает в динамической памяти матрицу размером nRows на nCols
 matrix getMemMatrix(int nRows, int nCols) {
-    int **values = (int **) malloc(sizeof(int *) * nRows);
+    int **values = (int **) calloc(nRows, sizeof(int *));
     for (int i = 0; i < nRows; i++)
-        values[i] = (int *) malloc(sizeof(int) * nCols);
+        values[i] = (int *) calloc(nCols, sizeof(int));
     return (matrix) {values, nRows, nCols};
 }
 

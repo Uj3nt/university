@@ -28,3 +28,17 @@
 848	1301	7343718715346453	streams_ex.c.exe	b5bc9c46c81185ab
 2	662	7343718863840107	CMakeFiles/file_ex.dir/libs/file_library/tasks/func_ex.c.obj	252099abaaae3f3a
 665	738	7343718864570275	file_ex.exe	dc6dc2b8af324c14
+2	274	7343733351636312	CMakeFiles/streams_ex.c.dir/libs/streams/tasks/streams_ex.c.obj	349ca3cc0ac91732
+275	352	7343733352376479	streams_ex.c.exe	b5bc9c46c81185ab
+3	288	7343734961231317	CMakeFiles/streams_ex.c.dir/libs/streams/tasks/streams_ex.c.obj	349ca3cc0ac91732
+292	379	7343734962121523	streams_ex.c.exe	b5bc9c46c81185ab
+2	277	7343736081305388	CMakeFiles/streams_ex.c.dir/libs/streams/tasks/streams_ex.c.obj	349ca3cc0ac91732
+281	356	7343736082075558	streams_ex.c.exe	b5bc9c46c81185ab
+2	273	7343736852185276	CMakeFiles/streams_ex.c.dir/libs/streams/tasks/streams_ex.c.obj	349ca3cc0ac91732
+275	347	7343736852905441	streams_ex.c.exe	b5bc9c46c81185ab
+2	283	7343740357170409	CMakeFiles/streams_ex.c.dir/libs/streams/tasks/streams_ex.c.obj	349ca3cc0ac91732
+284	366	7343740357960588	streams_ex.c.exe	b5bc9c46c81185ab
+2	287	7343740922178565	CMakeFiles/streams_ex.c.dir/libs/streams/tasks/streams_ex.c.obj	349ca3cc0ac91732
+288	365	7343740922928736	streams_ex.c.exe	b5bc9c46c81185ab
+2	293	7343741467002150	CMakeFiles/streams_ex.c.dir/libs/streams/tasks/streams_ex.c.obj	349ca3cc0ac91732
+296	372	7343741467762314	streams_ex.c.exe	b5bc9c46c81185ab
