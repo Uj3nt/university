@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "matrix_test.exe"
+			"path" : "matrix_ex_tests.exe"
 		},
 		{
-			"path" : "matrix_test.pdb"
+			"path" : "matrix_ex_tests.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -27,7 +27,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 17,
+				"line" : 19,
 				"parent" : 0
 			}
 		]
@@ -56,7 +56,7 @@
 			]
 		}
 	],
-	"id" : "matrix_test::@6890427a1f51a3e7e1df",
+	"id" : "matrix_ex_tests::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -76,8 +76,8 @@
 		],
 		"language" : "C"
 	},
-	"name" : "matrix_test",
-	"nameOnDisk" : "matrix_test.exe",
+	"name" : "matrix_ex_tests",
+	"nameOnDisk" : "matrix_ex_tests.exe",
 	"paths" : 
 	{
 		"build" : ".",
@@ -98,7 +98,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "matrix_test.c",
+			"path" : "matrix_ex_tests.c",
 			"sourceGroupIndex" : 0
 		}
 	],

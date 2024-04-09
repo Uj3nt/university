@@ -54,6 +54,12 @@
 				"file" : 0,
 				"line" : 13,
 				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 14,
+				"parent" : 0
 			}
 		]
 	},
@@ -92,6 +98,10 @@
 			"id" : "file_library::@ad7968fa409976479b5f"
 		},
 		{
+			"backtrace" : 6,
+			"id" : "streams::@820c22d89b51d2ab47c6"
+		},
+		{
 			"backtrace" : 2,
 			"id" : "string::@3f2b1fb9d1440f41f43e"
 		}
@@ -127,6 +137,11 @@
 			{
 				"backtrace" : 5,
 				"fragment" : "-ldata_struct",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "libs\\streams\\libstreams.a",
 				"role" : "libraries"
 			},
 			{

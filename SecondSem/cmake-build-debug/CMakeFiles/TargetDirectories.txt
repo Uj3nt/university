@@ -5,6 +5,7 @@ D:/Programmig_SecondSem/SecondSem/cmake-build-debug/CMakeFiles/matrix_test.dir
 D:/Programmig_SecondSem/SecondSem/cmake-build-debug/CMakeFiles/matrix_ex_tests.dir
 D:/Programmig_SecondSem/SecondSem/cmake-build-debug/CMakeFiles/string_test.dir
 D:/Programmig_SecondSem/SecondSem/cmake-build-debug/CMakeFiles/file_ex.dir
+D:/Programmig_SecondSem/SecondSem/cmake-build-debug/CMakeFiles/streams_ex.c.dir
 D:/Programmig_SecondSem/SecondSem/cmake-build-debug/CMakeFiles/edit_cache.dir
 D:/Programmig_SecondSem/SecondSem/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/CMakeFiles/edit_cache.dir
@@ -21,3 +22,6 @@ D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/data_struct/CMakeFiles/
 D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/string/CMakeFiles/string.dir
 D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/string/CMakeFiles/edit_cache.dir
 D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/string/CMakeFiles/rebuild_cache.dir
+D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/streams/CMakeFiles/streams.dir
+D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/streams/CMakeFiles/edit_cache.dir
+D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/streams/CMakeFiles/rebuild_cache.dir

@@ -1,4 +1,4 @@
-# Install script for directory: D:/Programmig_SecondSem/SecondSem/libs
+# Install script for directory: D:/Programmig_SecondSem/SecondSem/libs/streams
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,30 +35,5 @@ endif()
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "E:/MoiCi/CLion 2023.2.1/bin/mingw/bin/objdump.exe")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/algorithms/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/file_library/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/data_struct/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/string/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("D:/Programmig_SecondSem/SecondSem/cmake-build-debug/libs/streams/cmake_install.cmake")
 endif()
 
