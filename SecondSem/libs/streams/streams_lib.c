@@ -68,3 +68,18 @@ void lifeGameStep(matrix m) {
     freeMemMatrix(&buf);
 }
 
+void medianFilter3(matrix m) {
+    int size = 0;
+    int a[9];
+
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            if (i != 1 | j != 1) {
+                a[size++] = m.values[i][j];
+            }
+        }
+    }
+    SelectionArraySort(a, size);
+    outputArray_(a, 8);
+    m.values[1][1] = a[size/2];
+}
