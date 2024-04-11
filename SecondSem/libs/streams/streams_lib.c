@@ -83,3 +83,58 @@ void medianFilter3(matrix m) {
     outputArray_(a, 8);
     m.values[1][1] = a[size/2];
 }
+
+
+
+typedef struct Domain {
+    char *way;
+    int count_used;
+} Domain;
+
+Domain *getMemDomainArray(int n) {
+    Domain *values = (Domain *) malloc(n * sizeof(Domain));
+    return values;
+}
+
+Domain getDomain(char *s) {
+    Domain domain;
+    WordDescriptor word;
+
+    getWordReverse(getEndOfString(s), s, &word);
+
+    domain.count_used = atoi(s);
+    domain.way = word.begin;
+
+    return domain;
+}
+
+void addSubDomainInArray(Domain *res, int *size_res, char *way, int count_used) {
+    Domain domain;
+    int is_new_domain = 1;
+
+    for (int i = 1; i <= *size_res; ++i) {
+        if (!strcmp(res[i].way, way)) {
+            res[i].count_used += count_used;
+            is_new_domain = 0;
+            break;
+        }
+    }
+    if (is_new_domain) {
+        (*size_res)++;
+        res[*size_res].count_used = count_used;
+        res[*size_res].way = way;
+    }
+}
+
+
+void addAllDomain(Domain *res, int *size_res, Domain domain) {
+    char *ptrRead = getEndOfString(domain.way);
+
+    while (ptrRead > domain.way) {
+        if (*ptrRead == '.') {
+            addSubDomainInArray(res, size_res, ptrRead, domain.count_used);
+        }
+        ptrRead--;
+    }
+    addSubDomainInArray(res, size_res, ptrRead, domain.count_used);
+}
