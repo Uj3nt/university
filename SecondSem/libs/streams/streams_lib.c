@@ -138,3 +138,27 @@ void addAllDomain(Domain *res, int *size_res, Domain domain) {
     }
     addSubDomainInArray(res, size_res, ptrRead, domain.count_used);
 }
+
+
+int GetCountUnitSubMatrices(matrix m) {
+    int sum = 0;
+    for (int i = 0; i < m.nRows; ++i) {
+        int *nums = (int *) malloc(m.nCols * sizeof(int));
+        for (int j = 0; j < m.nCols; ++j) {
+            if (m.values[i][j] == 0) {
+                nums[j] = 0;
+            } else if (j == 0) {
+                nums[j] = 1;
+            } else {
+                nums[j] = nums[j - 1] + 1;
+                sum += nums[j - 1] + 1;
+            }
+            int min = INT_MAX;
+            for (int k = j; k < m.nCols; ++k) {
+                min = nums[k] < min ? nums[k] : min;
+            }
+            sum += min;
+        }
+    }
+    return sum;
+}
