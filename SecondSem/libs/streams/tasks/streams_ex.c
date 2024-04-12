@@ -50,11 +50,15 @@ void task5() {
     printf("%d", GetCountUnitSubMatrices(m));
 }
 
+void  task6() {
+    printf("%d",GetMinNumByPattern("DDD"));
+}
 
 int main() {
     //task1();
     //task2();
     //task3();
     //task4();
-    task5();
+    //task5();
+    task6();
 }

@@ -162,3 +162,111 @@ int GetCountUnitSubMatrices(matrix m) {
     }
     return sum;
 }
+
+int isPatternNum(int n, char *s) {
+    char s_num[strlen_(s)];
+    itoa(n, s_num, 10);
+    for (int i = 1; i <= strlen_(s); ++i) {
+        if (s[i] == 'I') {
+            if (s_num[i - 1] >= s_num[i]) {
+                return 0;
+            }
+        } else {
+            if (s_num[i - 1] <= s_num[i]) {
+                return 0;
+            }
+        }
+    }
+    return 1;
+}
+
+int NumInArray(int *a, int size, int num) {
+    for (int i = 0; i < size; ++i) {
+        if (a[i] == num) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+int AllDigitsINNumUnique(int n) {
+    int count_digit = 9;
+    int digits[] = {1, 2, 3, 4, 5, 6,7 ,8, 9};
+    while (n > 0) {
+        int digit = n % 10;
+        if (digits[digit-1] == digit) {
+            digits[digit-1] = -1;
+        } else {
+            return 0;
+        }
+        n /= 10;
+    }
+    return 1;
+}
+
+
+int GetMinNumByPattern(char *pattern) {
+    int min_pattern = (int) pow(10, (int) strlen_(pattern));
+    for (int i = min_pattern; i < min_pattern * 10; ++i) {
+        if (AllDigitsINNumUnique(i) && isPatternNum(i, pattern)) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//int SearchFirstNumByPattern(char *pattern) {
+//    for (int i = 1; i <= 9; ++i) {
+//        int is_correct_num = 1;
+//        int first_num = i;
+//        char *readSymbol = pattern;
+//        while (*readSymbol != '\0') {
+//            if (*readSymbol == 'I') {
+//                first_num += 1;
+//            } else {
+//                first_num -= 1;
+//            }
+//            readSymbol++;
+//
+//            if (first_num == 0 || first_num == 10) {
+//                is_correct_num = 0;
+//                break;
+//            }
+//        }
+//        if (is_correct_num) {
+//            return i;
+//        }
+//    }
+//}
+//
+//int getPatternNum(char *pattern, int first_num) {
+//    int res = first_num;
+//    char *readSymbol = pattern;
+//    while (*readSymbol != '\0') {
+//        if (*readSymbol == 'I') {
+//            first_num += 1;
+//        } else {
+//            first_num -= 1;
+//        }
+//        res = res * 10 + first_num;
+//        readSymbol++;
+//    }
+//    return res;
+//}
