@@ -82,6 +82,36 @@ void task8() {
     free(resString);
 }
 
+void task9() {
+    srand(time(NULL));
+
+    int N;
+
+    scanf("Input N: %d ", &N);
+
+    int count_num = 10;
+    char *way_input = getWayByTasks("task9input.txt");
+    FILE *file_input = fopen(way_input, "w");
+    GenerateRandomIntNumbers(file_input, count_num);
+    fclose(file_input);
+
+    int numbers[count_num];
+    fopen(way_input, "r");
+    ReadIntNumbers(file_input, numbers, &count_num);
+    fclose(file_input);
+
+    for (int i = 0; i < count_num; i++) {
+        if (numbers[i] >= N)
+            deleteByPosSaveOrder_(numbers, &count_num, i);
+    }
+
+    char *way_output = getWayByTasks("task9output.txt");
+    FILE *file_output = fopen(way_output, "w");
+    WriteIntNumbers(file_output, numbers, count_num);
+    fclose(file_output);
+}
+
+
 int main() {
     //task1();
     //task2();
@@ -90,5 +120,6 @@ int main() {
     //task5();
     //task6();
     //task7();
-    task8();
+    //task8();
+    task9();
 }

@@ -261,3 +261,22 @@ char *makeStringFromIndeces(char *s, int *indices, int indicesSize) {
 
     return result;
 }
+
+void GenerateRandomIntNumbers(FILE *file, int count) {
+    srand(time(NULL));
+    for (int i = 0; i < count; i++) {
+        int number = ((int) rand() / RAND_MAX) * 1000;
+        fprintf(file, "d\n", number);
+    }
+}
+
+void ReadIntNumbers(FILE *file, int numbers[], int *count) {
+    *count = 0;
+    while (fscanf(file, "%d", &numbers[*count]) == 1)
+        (*count)++;
+}
+
+void WriteIntNumbers(FILE *file, int numbers[], int count) {
+    for (int i = 0; i < count; i++)
+        fprintf(file, "%d\n", numbers[i]);
+}
