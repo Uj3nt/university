@@ -67,6 +67,19 @@ void task7() {
     for (int i = 1; i < size * 2; ++i) {
         printf("%d ", res[i]);
     }
+    free(res);
+}
+
+void task8() {
+    char s[] = "abap";
+    int indices[] = {0, 3, 2, 1};
+    int indicesSize = 4;
+
+    char* resString = makeStringFromIndeces(s, indices, indicesSize);
+
+    printf("%s\n", resString);
+
+    free(resString);
 }
 
 int main() {
@@ -76,5 +89,6 @@ int main() {
     //task4();
     //task5();
     //task6();
-    task7();
+    //task7();
+    task8();
 }
