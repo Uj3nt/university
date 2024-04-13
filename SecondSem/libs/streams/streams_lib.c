@@ -204,6 +204,23 @@ int AllDigitsINNumUnique(int n) {
     return 1;
 }
 
+int findMax(int *a, int size) {
+    int max = INT64_MIN;
+    for (int i = 0; i < size; i++) {
+        if (a[i] > max)
+            max = a[i];
+    }
+    return max;
+}
+
+int findIndexMax(int *a, int size) {
+    int index_max = 0;
+    for (int i = 0; i < size; ++i) {
+        if (a[i] == findMax(a, size))
+            index_max = i;
+    }
+    return index_max;
+}
 
 int GetMinNumByPattern(char *pattern) {
     int min_pattern = (int) pow(10, (int) strlen_(pattern));
@@ -215,58 +232,21 @@ int GetMinNumByPattern(char *pattern) {
     return -1;
 }
 
+//{3,2,1,6,0,5}
 
+void getBinTree(int *a, int size, int *res, int posWrite) {
+    int maxPos = findIndexMax(a, size);
+    res[posWrite] = a[maxPos];
 
+    if (maxPos != 0) {
+        getBinTree(a, maxPos, res, posWrite * 2);
+    } else {
+        res[posWrite * 2] =-1;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//int SearchFirstNumByPattern(char *pattern) {
-//    for (int i = 1; i <= 9; ++i) {
-//        int is_correct_num = 1;
-//        int first_num = i;
-//        char *readSymbol = pattern;
-//        while (*readSymbol != '\0') {
-//            if (*readSymbol == 'I') {
-//                first_num += 1;
-//            } else {
-//                first_num -= 1;
-//            }
-//            readSymbol++;
-//
-//            if (first_num == 0 || first_num == 10) {
-//                is_correct_num = 0;
-//                break;
-//            }
-//        }
-//        if (is_correct_num) {
-//            return i;
-//        }
-//    }
-//}
-//
-//int getPatternNum(char *pattern, int first_num) {
-//    int res = first_num;
-//    char *readSymbol = pattern;
-//    while (*readSymbol != '\0') {
-//        if (*readSymbol == 'I') {
-//            first_num += 1;
-//        } else {
-//            first_num -= 1;
-//        }
-//        res = res * 10 + first_num;
-//        readSymbol++;
-//    }
-//    return res;
-//}
+    if (maxPos != (size - 1)) {
+        getBinTree(a + maxPos + 1,size- maxPos -1, res, posWrite * 2 + 1);
+    } else {
+        res[posWrite * 2 + 1] = -1;
+    }
+}
