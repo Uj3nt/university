@@ -1,3 +1,5 @@
+#include <conio.h>
+#include <signal.h>
 #include "../file_library/file_func.c"
 
 void generateSubMatrixArray(int size_main_matrix, matrix sub_matrix_array) {
@@ -7,8 +9,10 @@ void generateSubMatrixArray(int size_main_matrix, matrix sub_matrix_array) {
         sub_matrix_array.values[i][0] = rand() % size_main_matrix;
         sub_matrix_array.values[i][1] = rand() % size_main_matrix;
 
-        sub_matrix_array.values[i][2] = sub_matrix_array.values[i][0] + rand() % (size_main_matrix - sub_matrix_array.values[i][0]);
-        sub_matrix_array.values[i][3] = sub_matrix_array.values[i][1] + rand() % (size_main_matrix - sub_matrix_array.values[i][1]);
+        sub_matrix_array.values[i][2] =
+                sub_matrix_array.values[i][0] + rand() % (size_main_matrix - sub_matrix_array.values[i][0]);
+        sub_matrix_array.values[i][3] =
+                sub_matrix_array.values[i][1] + rand() % (size_main_matrix - sub_matrix_array.values[i][1]);
     }
 }
 
@@ -60,7 +64,7 @@ void lifeGameStep(matrix m) {
                 m.values[i][j] = 0;
             } else if (buf.values[i][j] == 3 && m.values[i][j] == 0) {
                 m.values[i][j] = 1;
-            } else if  (buf.values[i][j] > 3 && m.values[i][j] == 1)  {
+            } else if (buf.values[i][j] > 3 && m.values[i][j] == 1) {
                 m.values[i][j] = 0;
             }
         }
@@ -81,9 +85,8 @@ void medianFilter3(matrix m) {
     }
     SelectionArraySort(a, size);
     outputArray_(a, 8);
-    m.values[1][1] = a[size/2];
+    m.values[1][1] = a[size / 2];
 }
-
 
 
 typedef struct Domain {
@@ -191,11 +194,11 @@ int NumInArray(int *a, int size, int num) {
 
 int AllDigitsINNumUnique(int n) {
     int count_digit = 9;
-    int digits[] = {1, 2, 3, 4, 5, 6,7 ,8, 9};
+    int digits[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
     while (n > 0) {
         int digit = n % 10;
-        if (digits[digit-1] == digit) {
-            digits[digit-1] = -1;
+        if (digits[digit - 1] == digit) {
+            digits[digit - 1] = -1;
         } else {
             return 0;
         }
@@ -241,11 +244,11 @@ void getBinTree(int *a, int size, int *res, int posWrite) {
     if (maxPos != 0) {
         getBinTree(a, maxPos, res, posWrite * 2);
     } else {
-        res[posWrite * 2] =-1;
+        res[posWrite * 2] = -1;
     }
 
     if (maxPos != (size - 1)) {
-        getBinTree(a + maxPos + 1,size- maxPos -1, res, posWrite * 2 + 1);
+        getBinTree(a + maxPos + 1, size - maxPos - 1, res, posWrite * 2 + 1);
     } else {
         res[posWrite * 2 + 1] = -1;
     }
@@ -279,4 +282,16 @@ void ReadIntNumbers(FILE *file, int numbers[], int *count) {
 void WriteIntNumbers(FILE *file, int numbers[], int count) {
     for (int i = 0; i < count; i++)
         fprintf(file, "%d\n", numbers[i]);
+}
+
+void outputPartsText(int size_part, FILE *file) {
+    for (int i = 0; i < size_part; ++i) {
+        char res[50];
+        fgets(res, 50, file);
+        if (feof(file) != 0) {
+            printf("End of file\n");
+            break;
+        }
+        printf("%s", res);
+    }
 }

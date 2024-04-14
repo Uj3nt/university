@@ -111,6 +111,19 @@ void task9() {
     fclose(file_output);
 }
 
+void task10() {
+    int part;
+    char *way_input = getWayByTasks("task10last.txt");
+    generateRandomStrings("task10last.txt");
+    FILE *file = fopen(way_input, "r");
+    scanf("%d", &part);
+    while (getch() == 3) {
+        outputPartsText(part, file);
+    }
+    fclose(file);
+}
+
+
 
 int main() {
     //task1();
@@ -121,5 +134,6 @@ int main() {
     //task6();
     //task7();
     //task8();
-    task9();
+    //task9();
+    task10();
 }
