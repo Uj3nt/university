@@ -2,6 +2,8 @@
 #include <signal.h>
 #include "../file_library/file_func.c"
 
+#define WINDOW_SIZE 9
+
 void generateSubMatrixArray(int size_main_matrix, matrix sub_matrix_array) {
     srand(time(NULL));
 
@@ -72,20 +74,54 @@ void lifeGameStep(matrix m) {
     freeMemMatrix(&buf);
 }
 
-void medianFilter3(matrix m) {
-    int size = 0;
-    int a[9];
 
-    for (int i = 0; i < 3; ++i) {
-        for (int j = 0; j < 3; ++j) {
-            if (i != 1 | j != 1) {
-                a[size++] = m.values[i][j];
-            }
+matrix copyMatrix(matrix *original) {
+    matrix copy;
+    copy.nRows = original->nRows;
+    copy.nCols = original->nCols;
+
+    copy.values = (int **) malloc(copy.nRows * sizeof(int *));
+    for (int i = 0; i < copy.nRows; i++) {
+        copy.values[i] = (int *) malloc(copy.nCols * sizeof(int));
+        for (int j = 0; j < copy.nCols; j++) {
+            copy.values[i][j] = original->values[i][j];
         }
     }
-    SelectionArraySort(a, size);
-    outputArray_(a, 8);
-    m.values[1][1] = a[size / 2];
+
+    return copy;
+}
+
+void medianFilter(matrix *image) {
+    matrix filtered_image = copyMatrix(image);
+
+    int window[WINDOW_SIZE];
+
+    for (int i = 1; i < image->nRows - 1; i++) {
+        for (int j = 1; j < image->nCols - 1; j++) {
+            int k = 0;
+            for (int x = -1; x <= 1; x++) {
+                for (int y = -1; y <= 1; y++) {
+                    window[k++] = image->values[i + x][j + y];
+                }
+            }
+
+            for (int m = 0; m < WINDOW_SIZE; m++) {
+                for (int n = m + 1; n < WINDOW_SIZE; n++) {
+                    if (window[n] < window[m]) {
+                        int temp = window[m];
+                        window[m] = window[n];
+                        window[n] = temp;
+                    }
+                }
+            }
+
+            filtered_image.values[i][j] = window[WINDOW_SIZE / 2];
+        }
+    }
+
+    freeMemMatrix(image);
+
+    *image = filtered_image;
 }
 
 

@@ -23,7 +23,7 @@ void task3() {
     matrix m = getMemMatrix(3, 3);
     inputMatrix(&m);
     outputMatrix(m);
-    medianFilter3(m);
+    medianFilter(&m);
     outputMatrix(m);
 }
 
@@ -135,5 +135,5 @@ int main() {
     //task7();
     //task8();
     //task9();
-    task10();
+    //task10();
 }
